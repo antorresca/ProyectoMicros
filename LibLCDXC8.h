@@ -5,6 +5,7 @@
  * Created on 2 de septiembre de 2018, 08:15 PM
  */
 
+#include<stdio.h>
 #ifndef LIBLCDXC8_H
 #define	LIBLCDXC8_H
 

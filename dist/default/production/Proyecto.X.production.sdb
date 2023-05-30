@@ -1,0 +1,60 @@
+[p GLOBOPT AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul64.c
+[v ___omul __omul `(ul  1 e 4 0 ]
+"61 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+[v _EnviaDato EnviaDato `(v  1 e 1 0 ]
+"107
+[v _HabilitaLCD HabilitaLCD `(v  1 e 1 0 ]
+"114
+[v _BorraLCD BorraLCD `(v  1 e 1 0 ]
+"128
+[v _ComandoLCD ComandoLCD `(v  1 e 1 0 ]
+"147
+[v _EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
+"294
+[v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
+"13 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+[v _main main `(v  1 e 1 0 ]
+"3074 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"3264
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"3626
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"4002
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"10016
+[v _LATE0 LATE0 `VEb  1 e 0 @31848 ]
+"10376
+[v _RB4 RB4 `VEb  1 e 0 @31756 ]
+"10424
+[v _RC6 RC6 `VEb  1 e 0 @31766 ]
+"13 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+[v _main main `(v  1 e 1 0 ]
+{
+"20
+} 0
