@@ -27,6 +27,8 @@
 [v ___omul __omul `(ul  1 e 4 0 ]
 "61 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _EnviaDato EnviaDato `(v  1 e 1 0 ]
+"73
+[v _InicializaLCD InicializaLCD `(v  1 e 1 0 ]
 "107
 [v _HabilitaLCD HabilitaLCD `(v  1 e 1 0 ]
 "114
@@ -37,8 +39,10 @@
 [v _EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
 "294
 [v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
-"13 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"17 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _main main `(v  1 e 1 0 ]
+"90
+[v _ISR ISR `IIH(v  1 e 1 0 ]
 "3074 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "3264
@@ -47,14 +51,94 @@
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "4002
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"4937
+[v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
+"5147
+[v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+"6328
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
+"6497
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
+"7201
+[v _T2CON T2CON `VEuc  1 e 1 @4042 ]
+"7299
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+"7409
+[v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+"7987
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"8070
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"8140
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+"9746
+[v _GIE GIE `VEb  1 e 0 @32663 ]
 "10016
 [v _LATE0 LATE0 `VEb  1 e 0 @31848 ]
+"10019
+[v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "10376
 [v _RB4 RB4 `VEb  1 e 0 @31756 ]
 "10424
 [v _RC6 RC6 `VEb  1 e 0 @31766 ]
-"13 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"10817
+[v _TMR0IE TMR0IE `VEb  1 e 0 @32661 ]
+"10820
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"10826
+[v _TMR0ON TMR0ON `VEb  1 e 0 @32431 ]
+"10853
+[v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
+"10937
+[v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
+"10940
+[v _TRISC6 TRISC6 `VEb  1 e 0 @31910 ]
+"10943
+[v _TRISC7 TRISC7 `VEb  1 e 0 @31911 ]
+"10970
+[v _TRISE0 TRISE0 `VEb  1 e 0 @31920 ]
+"10973
+[v _TRISE1 TRISE1 `VEb  1 e 0 @31921 ]
+"11 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+[v _contador contador `i  1 e 2 0 ]
+"17
 [v _main main `(v  1 e 1 0 ]
 {
-"20
+"54
+} 0
+"73 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+[v _InicializaLCD InicializaLCD `(v  1 e 1 0 ]
+{
+"106
+} 0
+"114
+[v _BorraLCD BorraLCD `(v  1 e 1 0 ]
+{
+"120
+} 0
+"61
+[v _EnviaDato EnviaDato `(v  1 e 1 0 ]
+{
+[v EnviaDato@a a `uc  1 a 1 wreg ]
+[v EnviaDato@a a `uc  1 a 1 wreg ]
+[v EnviaDato@a a `uc  1 a 1 2 ]
+"72
+} 0
+"294
+[v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
+{
+[v RetardoLCD@a a `uc  1 a 1 wreg ]
+[v RetardoLCD@a a `uc  1 a 1 wreg ]
+[v RetardoLCD@a a `uc  1 a 1 1 ]
+"312
+} 0
+"107
+[v _HabilitaLCD HabilitaLCD `(v  1 e 1 0 ]
+{
+"113
+} 0
+"90 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+[v _ISR ISR `IIH(v  1 e 1 0 ]
+{
+"100
 } 0

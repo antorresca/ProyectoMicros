@@ -20,8 +20,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "3626 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"7987
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
 "4002
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"10970
+[v _TRISE0 `Vb ~T0 @X0 0 e@31920 ]
+"10973
+[v _TRISE1 `Vb ~T0 @X0 0 e@31921 ]
+"8070
+[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
+"8140
+[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
+"10820
+[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
+"10817
+[v _TMR0IE `Vb ~T0 @X0 0 e@32661 ]
+"10826
+[v _TMR0ON `Vb ~T0 @X0 0 e@32431 ]
+"9746
+[v _GIE `Vb ~T0 @X0 0 e@32663 ]
+"10937
+[v _TRISC2 `Vb ~T0 @X0 0 e@31906 ]
+"7299
+[v _PR2 `Vuc ~T0 @X0 0 e@4043 ]
+"6497
+[v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
+"7201
+[v _T2CON `Vuc ~T0 @X0 0 e@4042 ]
+"6328
+[v _CCP1CON `Vuc ~T0 @X0 0 e@4029 ]
+"7409
+[v _TMR2 `Vuc ~T0 @X0 0 e@4044 ]
+"10853
+[v _TMR2ON `Vb ~T0 @X0 0 e@32338 ]
+"10940
+[v _TRISC6 `Vb ~T0 @X0 0 e@31910 ]
+"10943
+[v _TRISC7 `Vb ~T0 @X0 0 e@31911 ]
+"5147
+[v _TXSTA `Vuc ~T0 @X0 0 e@4012 ]
+"4937
+[v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
 [t ~ __deprecated__ ]
 [t T16 __deprecated__ ]
 "10376
@@ -36,6 +76,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATB `Vuc ~T0 @X0 0 e@3978 ]
 "10424
 [v _RC6 `Vb ~T16 @X0 0 e@31766 ]
+[t ~ __interrupt . k ]
+[t T47 __interrupt  ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -4057,195 +4099,273 @@ Version 3.2 HI-TECH Software Intermediate Code
 "312
 [e :UE 391 ]
 }
-[; ;Proyecto.c: 11: unsigned char LeerTeclado(void);
+"11 Proyecto.c
+[v _contador `i ~T0 @X0 1 e ]
+[i _contador
+-> 0 `i
+]
+[; ;Proyecto.c: 11: int contador = 0;
+"12
+[v _duty `i ~T0 @X0 1 e ]
+[i _duty
+-> 0 `i
+]
+[; ;Proyecto.c: 12: int duty = 0;
+[; ;Proyecto.c: 15: unsigned char LeerTeclado(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13 Proyecto.c
+"17
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Proyecto.c: 13: void main(void){
+[; ;Proyecto.c: 17: void main(void){
 [e :U _main ]
 [f ]
-[; ;Proyecto.c: 15: TRISB = 0;
-"15
+[; ;Proyecto.c: 19: TRISB = 0;
+"19
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;Proyecto.c: 16: TRISD = 0;
-"16
+[; ;Proyecto.c: 20: OSCCON = 0b11110110;
+"20
+[e = _OSCCON -> -> 246 `i `uc ]
+[; ;Proyecto.c: 22: TRISD = 0;
+"22
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;Proyecto.c: 17: while(1){
-"17
+[; ;Proyecto.c: 23: TRISE0 = 0;
+"23
+[e = _TRISE0 -> -> 0 `i `b ]
+[; ;Proyecto.c: 24: TRISE1 = 0;
+"24
+[e = _TRISE1 -> -> 0 `i `b ]
+[; ;Proyecto.c: 25: InicializaLCD();
+"25
+[e ( _InicializaLCD ..  ]
+[; ;Proyecto.c: 26: BorraLCD();
+"26
+[e ( _BorraLCD ..  ]
+[; ;Proyecto.c: 29: T0CON = 0b0000110;
+"29
+[e = _T0CON -> -> 6 `i `uc ]
+[; ;Proyecto.c: 30: TMR0 = 49911;
+"30
+[e = _TMR0 -> -> 49911 `l `us ]
+[; ;Proyecto.c: 31: TMR0IF = 0;
+"31
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;Proyecto.c: 32: TMR0IE = 1;
+"32
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;Proyecto.c: 33: TMR0ON=1;
+"33
+[e = _TMR0ON -> -> 1 `i `b ]
+[; ;Proyecto.c: 34: GIE = 1;
+"34
+[e = _GIE -> -> 1 `i `b ]
+[; ;Proyecto.c: 37: TRISC2 = 0;
+"37
+[e = _TRISC2 -> -> 0 `i `b ]
+[; ;Proyecto.c: 38: PR2 = 249;
+"38
+[e = _PR2 -> -> 249 `i `uc ]
+[; ;Proyecto.c: 39: CCPR1L = 0;
+"39
+[e = _CCPR1L -> -> 0 `i `uc ]
+[; ;Proyecto.c: 40: T2CON=0b00000000;
+"40
+[e = _T2CON -> -> 0 `i `uc ]
+[; ;Proyecto.c: 41: CCP1CON=0b00001100;
+"41
+[e = _CCP1CON -> -> 12 `i `uc ]
+[; ;Proyecto.c: 42: TMR2=0;
+"42
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;Proyecto.c: 43: TMR2ON=1;
+"43
+[e = _TMR2ON -> -> 1 `i `b ]
+[; ;Proyecto.c: 46: TRISC6 = 1;
+"46
+[e = _TRISC6 -> -> 1 `i `b ]
+[; ;Proyecto.c: 47: TRISC7 = 1;
+"47
+[e = _TRISC7 -> -> 1 `i `b ]
+[; ;Proyecto.c: 48: TXSTA = 0b00100000;
+"48
+[e = _TXSTA -> -> 32 `i `uc ]
+[; ;Proyecto.c: 49: RCSTA = 0b10010000;
+"49
+[e = _RCSTA -> -> 144 `i `uc ]
+[; ;Proyecto.c: 51: while(1){
+"51
 [e :U 401 ]
 {
-"19
+"53
 }
 [e :U 400 ]
-"17
+"51
 [e $U 401  ]
 [e :U 402 ]
-[; ;Proyecto.c: 19: }
-[; ;Proyecto.c: 20: }
-"20
+[; ;Proyecto.c: 53: }
+[; ;Proyecto.c: 54: }
+"54
 [e :UE 399 ]
 }
-"22
+"56
 [v _LeerTeclado `(uc ~T0 @X0 1 ef ]
 {
-[; ;Proyecto.c: 22: unsigned char LeerTeclado(void){
+[; ;Proyecto.c: 56: unsigned char LeerTeclado(void){
 [e :U _LeerTeclado ]
 [f ]
-[; ;Proyecto.c: 24: while(RB4==1 && RB5==1 && RB6==1 && RB7==1);
-"24
+[; ;Proyecto.c: 58: while(RB4==1 && RB5==1 && RB6==1 && RB7==1);
+"58
 [e $U 404  ]
 [e :U 405 ]
 [e :U 404 ]
 [e $ && && && == -> _RB4 `i -> 1 `i == -> _RB5 `i -> 1 `i == -> _RB6 `i -> 1 `i == -> _RB7 `i -> 1 `i 405  ]
 [e :U 406 ]
-[; ;Proyecto.c: 25: LATB=0b11111110;
-"25
+[; ;Proyecto.c: 59: LATB=0b11111110;
+"59
 [e = _LATB -> -> 254 `i `uc ]
-[; ;Proyecto.c: 26: if(RB4==0) return '1';
-"26
+[; ;Proyecto.c: 60: if(RB4==0) return '1';
+"60
 [e $ ! == -> _RB4 `i -> 0 `i 407  ]
 [e ) -> -> 49 `ui `uc ]
 [e $UE 403  ]
 [e $U 408  ]
-"27
+"61
 [e :U 407 ]
-[; ;Proyecto.c: 27: else if(RB5==0) return '2';
+[; ;Proyecto.c: 61: else if(RB5==0) return '2';
 [e $ ! == -> _RB5 `i -> 0 `i 409  ]
 [e ) -> -> 50 `ui `uc ]
 [e $UE 403  ]
 [e $U 410  ]
-"28
+"62
 [e :U 409 ]
-[; ;Proyecto.c: 28: else if(RB6==0) return '3';
+[; ;Proyecto.c: 62: else if(RB6==0) return '3';
 [e $ ! == -> _RB6 `i -> 0 `i 411  ]
 [e ) -> -> 51 `ui `uc ]
 [e $UE 403  ]
 [e $U 412  ]
-"29
+"63
 [e :U 411 ]
-[; ;Proyecto.c: 29: else if(RB7==0 & RC6==0) return '+';
+[; ;Proyecto.c: 63: else if(RB7==0 & RC6==0) return '+';
 [e $ ! & == -> _RB7 `i -> 0 `i == -> _RC6 `i -> 0 `i 413  ]
 [e ) -> -> 43 `ui `uc ]
 [e $UE 403  ]
 [e $U 414  ]
-"30
+"64
 [e :U 413 ]
-[; ;Proyecto.c: 30: else if(RB7==0 & RC6==1) return '!';
+[; ;Proyecto.c: 64: else if(RB7==0 & RC6==1) return '!';
 [e $ ! & == -> _RB7 `i -> 0 `i == -> _RC6 `i -> 1 `i 415  ]
 [e ) -> -> 33 `ui `uc ]
 [e $UE 403  ]
 [e $U 416  ]
-"31
+"65
 [e :U 415 ]
-[; ;Proyecto.c: 31: else{
+[; ;Proyecto.c: 65: else{
 {
-[; ;Proyecto.c: 32: LATB=0b11111101;
-"32
+[; ;Proyecto.c: 66: LATB=0b11111101;
+"66
 [e = _LATB -> -> 253 `i `uc ]
-[; ;Proyecto.c: 33: if(RB4==0) return '4';
-"33
+[; ;Proyecto.c: 67: if(RB4==0) return '4';
+"67
 [e $ ! == -> _RB4 `i -> 0 `i 417  ]
 [e ) -> -> 52 `ui `uc ]
 [e $UE 403  ]
 [e $U 418  ]
-"34
+"68
 [e :U 417 ]
-[; ;Proyecto.c: 34: else if(RB5==0) return '5';
+[; ;Proyecto.c: 68: else if(RB5==0) return '5';
 [e $ ! == -> _RB5 `i -> 0 `i 419  ]
 [e ) -> -> 53 `ui `uc ]
 [e $UE 403  ]
 [e $U 420  ]
-"35
+"69
 [e :U 419 ]
-[; ;Proyecto.c: 35: else if(RB6==0) return '6';
+[; ;Proyecto.c: 69: else if(RB6==0) return '6';
 [e $ ! == -> _RB6 `i -> 0 `i 421  ]
 [e ) -> -> 54 `ui `uc ]
 [e $UE 403  ]
 [e $U 422  ]
-"36
+"70
 [e :U 421 ]
-[; ;Proyecto.c: 36: else if(RB7==0 & RC6==0) return '-';
+[; ;Proyecto.c: 70: else if(RB7==0 & RC6==0) return '-';
 [e $ ! & == -> _RB7 `i -> 0 `i == -> _RC6 `i -> 0 `i 423  ]
 [e ) -> -> 45 `ui `uc ]
 [e $UE 403  ]
 [e $U 424  ]
-"37
+"71
 [e :U 423 ]
-[; ;Proyecto.c: 37: else if(RB7==0 & RC6==1) return '^';
+[; ;Proyecto.c: 71: else if(RB7==0 & RC6==1) return '^';
 [e $ ! & == -> _RB7 `i -> 0 `i == -> _RC6 `i -> 1 `i 425  ]
 [e ) -> -> 94 `ui `uc ]
 [e $UE 403  ]
 [e $U 426  ]
-"38
+"72
 [e :U 425 ]
-[; ;Proyecto.c: 38: else{
+[; ;Proyecto.c: 72: else{
 {
-[; ;Proyecto.c: 39: LATB=0b11111011;
-"39
+[; ;Proyecto.c: 73: LATB=0b11111011;
+"73
 [e = _LATB -> -> 251 `i `uc ]
-[; ;Proyecto.c: 40: if(RB4==0) return '7';
-"40
+[; ;Proyecto.c: 74: if(RB4==0) return '7';
+"74
 [e $ ! == -> _RB4 `i -> 0 `i 427  ]
 [e ) -> -> 55 `ui `uc ]
 [e $UE 403  ]
 [e $U 428  ]
-"41
+"75
 [e :U 427 ]
-[; ;Proyecto.c: 41: else if(RB5==0) return '8';
+[; ;Proyecto.c: 75: else if(RB5==0) return '8';
 [e $ ! == -> _RB5 `i -> 0 `i 429  ]
 [e ) -> -> 56 `ui `uc ]
 [e $UE 403  ]
 [e $U 430  ]
-"42
+"76
 [e :U 429 ]
-[; ;Proyecto.c: 42: else if(RB6==0) return '9';
+[; ;Proyecto.c: 76: else if(RB6==0) return '9';
 [e $ ! == -> _RB6 `i -> 0 `i 431  ]
 [e ) -> -> 57 `ui `uc ]
 [e $UE 403  ]
 [e $U 432  ]
-"43
+"77
 [e :U 431 ]
-[; ;Proyecto.c: 43: else if(RB7==0) return '/';
+[; ;Proyecto.c: 77: else if(RB7==0) return '/';
 [e $ ! == -> _RB7 `i -> 0 `i 433  ]
 [e ) -> -> 47 `ui `uc ]
 [e $UE 403  ]
 [e $U 434  ]
-"44
+"78
 [e :U 433 ]
-[; ;Proyecto.c: 44: else{
+[; ;Proyecto.c: 78: else{
 {
-[; ;Proyecto.c: 45: LATB=0b11110111;
-"45
+[; ;Proyecto.c: 79: LATB=0b11110111;
+"79
 [e = _LATB -> -> 247 `i `uc ]
-[; ;Proyecto.c: 46: if(RB4==0) return 'C';
-"46
+[; ;Proyecto.c: 80: if(RB4==0) return 'C';
+"80
 [e $ ! == -> _RB4 `i -> 0 `i 435  ]
 [e ) -> -> 67 `ui `uc ]
 [e $UE 403  ]
 [e $U 436  ]
-"47
+"81
 [e :U 435 ]
-[; ;Proyecto.c: 47: else if(RB5==0) return '0';
+[; ;Proyecto.c: 81: else if(RB5==0) return '0';
 [e $ ! == -> _RB5 `i -> 0 `i 437  ]
 [e ) -> -> 48 `ui `uc ]
 [e $UE 403  ]
 [e $U 438  ]
-"48
+"82
 [e :U 437 ]
-[; ;Proyecto.c: 48: else if(RB6==0) return '=';
+[; ;Proyecto.c: 82: else if(RB6==0) return '=';
 [e $ ! == -> _RB6 `i -> 0 `i 439  ]
 [e ) -> -> 61 `ui `uc ]
 [e $UE 403  ]
 [e $U 440  ]
-"49
+"83
 [e :U 439 ]
-[; ;Proyecto.c: 49: else if(RB7==0) return 'x';
+[; ;Proyecto.c: 83: else if(RB7==0) return 'x';
 [e $ ! == -> _RB7 `i -> 0 `i 441  ]
 [e ) -> -> 120 `ui `uc ]
 [e $UE 403  ]
 [e :U 441 ]
-"50
+"84
 [e :U 440 ]
 [e :U 438 ]
 [e :U 436 ]
@@ -4254,28 +4374,73 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 432 ]
 [e :U 430 ]
 [e :U 428 ]
-"51
+"85
 }
 [e :U 426 ]
 [e :U 424 ]
 [e :U 422 ]
 [e :U 420 ]
 [e :U 418 ]
-"52
+"86
 }
 [e :U 416 ]
 [e :U 414 ]
 [e :U 412 ]
 [e :U 410 ]
 [e :U 408 ]
-[; ;Proyecto.c: 50: }
-[; ;Proyecto.c: 51: }
-[; ;Proyecto.c: 52: }
-[; ;Proyecto.c: 53: return ' ';
-"53
+[; ;Proyecto.c: 84: }
+[; ;Proyecto.c: 85: }
+[; ;Proyecto.c: 86: }
+[; ;Proyecto.c: 87: return ' ';
+"87
 [e ) -> -> 32 `ui `uc ]
 [e $UE 403  ]
-[; ;Proyecto.c: 54: }
-"54
+[; ;Proyecto.c: 88: }
+"88
 [e :UE 403 ]
+}
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"90
+[v _ISR `(v ~T47 @X0 1 ef ]
+{
+[; ;Proyecto.c: 90: void __interrupt() ISR(void){
+[e :U _ISR ]
+[f ]
+[; ;Proyecto.c: 91: if(TMR0IF == 1){
+"91
+[e $ ! == -> _TMR0IF `i -> 1 `i 443  ]
+{
+[; ;Proyecto.c: 92: TMR0IF=0;
+"92
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;Proyecto.c: 93: TMR0 = 49911;
+"93
+[e = _TMR0 -> -> 49911 `l `us ]
+[; ;Proyecto.c: 94: contador += 1;
+"94
+[e =+ _contador -> 1 `i ]
+[; ;Proyecto.c: 95: if(contador == 20){
+"95
+[e $ ! == _contador -> 20 `i 444  ]
+{
+[; ;Proyecto.c: 96: asm(" sleep");
+"96
+[; <"  sleep ;# ">
+[; ;Proyecto.c: 97: while(1);
+"97
+[e :U 446 ]
+[e :U 445 ]
+[e $U 446  ]
+[e :U 447 ]
+"98
+}
+[e :U 444 ]
+"99
+}
+[e :U 443 ]
+[; ;Proyecto.c: 98: }
+[; ;Proyecto.c: 99: }
+[; ;Proyecto.c: 100: }
+"100
+[e :UE 442 ]
 }

@@ -5883,12 +5883,46 @@ break;
 }
 
 # 11 "Proyecto.c"
+int contador = 0;
+int duty = 0;
+
+
 unsigned char LeerTeclado(void);
 
 void main(void){
 
 TRISB = 0;
+OSCCON = 0b11110110;
+
 TRISD = 0;
+TRISE0 = 0;
+TRISE1 = 0;
+InicializaLCD();
+BorraLCD();
+
+
+T0CON = 0b0000110;
+TMR0 = 49911;
+TMR0IF = 0;
+TMR0IE = 1;
+TMR0ON=1;
+GIE = 1;
+
+
+TRISC2 = 0;
+PR2 = 249;
+CCPR1L = 0;
+T2CON=0b00000000;
+CCP1CON=0b00001100;
+TMR2=0;
+TMR2ON=1;
+
+
+TRISC6 = 1;
+TRISC7 = 1;
+TXSTA = 0b00100000;
+RCSTA = 0b10010000;
+
 while(1){
 
 }
@@ -5926,4 +5960,16 @@ else if(RB7==0) return 'x';
 }
 }
 return ' ';
+}
+
+void __interrupt() ISR(void){
+if(TMR0IF == 1){
+TMR0IF=0;
+TMR0 = 49911;
+contador += 1;
+if(contador == 20){
+asm(" sleep");
+while(1);
+}
+}
 }
