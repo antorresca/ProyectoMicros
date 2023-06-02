@@ -39,9 +39,15 @@
 [v _EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
 "294
 [v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
-"17 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"34 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _main main `(v  1 e 1 0 ]
-"90
+"102
+[v _LeerByte LeerByte `(uc  1 e 1 0 ]
+"110
+[v _LeerBit LeerBit `(uc  1 e 1 0 ]
+"157
+[v _Transmitir Transmitir `(v  1 e 1 0 ]
+"171
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "3074 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
@@ -55,10 +61,22 @@
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
 "5147
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
+"5403
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5415
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"5427
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "6328
 [v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
 "6497
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
+"6511
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"6582
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"6667
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
 "7201
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
 "7299
@@ -73,14 +91,22 @@
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
 "9746
 [v _GIE GIE `VEb  1 e 0 @32663 ]
+"9830
+[v _INT0IE INT0IE `VEb  1 e 0 @32660 ]
+"9833
+[v _INT0IF INT0IF `VEb  1 e 0 @32657 ]
+"9878
+[v _INTEDG0 INTEDG0 `VEb  1 e 0 @32654 ]
 "10016
 [v _LATE0 LATE0 `VEb  1 e 0 @31848 ]
 "10019
 [v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "10376
 [v _RB4 RB4 `VEb  1 e 0 @31756 ]
-"10424
-[v _RC6 RC6 `VEb  1 e 0 @31766 ]
+"10415
+[v _RC2 RC2 `VEb  1 e 0 @31762 ]
+"10448
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
 "10817
 [v _TMR0IE TMR0IE `VEb  1 e 0 @32661 ]
 "10820
@@ -99,12 +125,12 @@
 [v _TRISE0 TRISE0 `VEb  1 e 0 @31920 ]
 "10973
 [v _TRISE1 TRISE1 `VEb  1 e 0 @31921 ]
-"11 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"17 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _contador contador `i  1 e 2 0 ]
-"17
+"34
 [v _main main `(v  1 e 1 0 ]
 {
-"54
+"83
 } 0
 "73 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _InicializaLCD InicializaLCD `(v  1 e 1 0 ]
@@ -137,8 +163,8 @@
 {
 "113
 } 0
-"90 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"171 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"100
+"186
 } 0
