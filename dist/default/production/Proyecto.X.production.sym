@@ -253,7 +253,7 @@ bssCOMRAM 1 B COMRAM 1 1
 %locals
 dist/default/production\Proyecto.X.production.obj
 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
-C:\Users\Andres\AppData\Local\Temp\xcAs2as.as
+C:\Users\Andres\AppData\Local\Temp\xcAsng.as
 559 152 0 CODE 0
 561 152 0 CODE 0
 564 152 0 CODE 0
@@ -363,7 +363,7 @@ LibLCDXC8.h
 110 194 0 CODE 0
 112 19C 0 CODE 0
 113 19E 0 CODE 0
-C:\Users\Andres\AppData\Local\Temp\xcAs2as.as
+C:\Users\Andres\AppData\Local\Temp\xcAsng.as
 1616 8 0 CODE 0
 Proyecto.c
 171 8 0 CODE 0
