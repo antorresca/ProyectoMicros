@@ -5910,7 +5910,7 @@ BorraLCD();
 INTEDG0 = 1;
 INT0IF = 0;
 INT0IE = 1;
-
+PEIE = 1;
 
 
 ADCON0 = 0b00000001;

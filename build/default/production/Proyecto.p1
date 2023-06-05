@@ -34,6 +34,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INT0IF `Vb ~T0 @X0 0 e@32657 ]
 "9830
 [v _INT0IE `Vb ~T0 @X0 0 e@32660 ]
+"10274
+[v _PEIE `Vb ~T0 @X0 0 e@32662 ]
 "6667
 [v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
 "6582
@@ -4186,6 +4188,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Proyecto.c: 48: INT0IE = 1;
 "48
 [e = _INT0IE -> -> 1 `i `b ]
+[; ;Proyecto.c: 49: PEIE = 1;
+"49
+[e = _PEIE -> -> 1 `i `b ]
 [; ;Proyecto.c: 52: ADCON0 = 0b00000001;
 "52
 [e = _ADCON0 -> -> 1 `i `uc ]

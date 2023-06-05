@@ -18,6 +18,10 @@ int contador = 0;
 int duty = 0;
 unsigned char Temp, Hum;
 
+//Configuraciones
+#pragma config PBADEN = OFF
+#pragma 
+
 #define _XTAL_FREQ 8000000 //Frecuencia de reloj
 #define DATA_DIR TRISC2
 #define DATA_IN RC2
@@ -42,15 +46,9 @@ void main(void){
     InicializaLCD();
     BorraLCD();
     //Fin de configuracion del LCD
-    //Configuración para interrupción 0
-    INTEDG0 = 1;
-    INT0IF = 0;
-    INT0IE = 1;
-    //PIE = 1;
-    //Fin de configuración para interrupción 0
     //Configuracion del ADC
     ADCON0 = 0b00000001;
-    ADCON1 = 13;
+    ADCON1 = 0b00001100;
     ADCON2 = 0b10001000;
     //Fin de configuracion del ADC
     //Configuracion del Timer 0
