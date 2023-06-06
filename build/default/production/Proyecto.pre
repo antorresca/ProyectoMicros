@@ -5902,11 +5902,12 @@ unsigned char ing = 0;
 int c = 1000000;
 
 
+#pragma config FOSC=INTOSC_EC
 #pragma config PBADEN = OFF
 #pragma config WDT = OFF
 #pragma config LVP=OFF
 
-# 46
+# 47
 unsigned char LeerTeclado(void);
 unsigned char LeerByte(void);
 unsigned char LeerBit(void);
@@ -5964,6 +5965,9 @@ RCSTA = 0b10010000;
 SPBRG = 12;
 
 
+UTRDIS = 1;
+USBEN = 0;
+
 _delay((unsigned long)((1000)*(8000000/4000.0)));
 BorraLCD();
 NuevoCaracter(0,cara);
@@ -5977,6 +5981,7 @@ DireccionaLCD(0x80);
 MensajeLCD_Word("                ");
 DireccionaLCD(0x80);
 MensajeLCD_Word("Password:");
+while(1){
 while(ing!=Cont){
 DireccionaLCD(0xC1);
 MensajeLCD_Word("                ");
@@ -5985,7 +5990,6 @@ DireccionaLCD(0x80);
 MensajeLCD_Word("                ");
 DireccionaLCD(0xC1);
 MensajeLCD_Word("                ");
-while(1){
 _delay((unsigned long)((500)*(8000000/4000.0)));
 LeerHT11();
 TransmitirDatos(0, 0);

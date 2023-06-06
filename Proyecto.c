@@ -33,6 +33,7 @@ unsigned char ing = 0;
 int c = 1000000;
 
 //Configuraciones
+#pragma config FOSC=INTOSC_EC
 #pragma config PBADEN = OFF
 #pragma config WDT = OFF
 #pragma config LVP=OFF
@@ -99,6 +100,9 @@ void main(void){
     RCSTA = 0b10010000;
     SPBRG = 12; 
     //Fin de configuracion de comunicacion  
+    //Sensor
+    UTRDIS = 1;
+    USBEN = 0;
     //Protocolo de inicio
     __delay_ms(1000); //Retraso para evitar errores
     BorraLCD(); 
@@ -113,15 +117,15 @@ void main(void){
     MensajeLCD_Word("                "); //Mandar mensaje vacio para limpiar
     DireccionaLCD(0x80);
     MensajeLCD_Word("Password:");
-    while(ing!=Cont){
+    while(1){      
+        while(ing!=Cont){
         DireccionaLCD(0xC1);
         MensajeLCD_Word("                ");
-    }
-    DireccionaLCD(0x80);
-    MensajeLCD_Word("                ");
-    DireccionaLCD(0xC1);
-    MensajeLCD_Word("                ");
-    while(1){        
+        }
+        DireccionaLCD(0x80);
+        MensajeLCD_Word("                ");
+        DireccionaLCD(0xC1);
+        MensajeLCD_Word("                ");
         __delay_ms(500);
         LeerHT11();        
         TransmitirDatos(0, 0);
