@@ -5722,7 +5722,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 36 "LibLCDXC8.h"
+# 37 "LibLCDXC8.h"
 unsigned char interfaz=8;
 
 void ConfiguraLCD(unsigned char);
@@ -5796,10 +5796,10 @@ RetardoLCD(4);
 }
 void HabilitaLCD(void){
 
-LATE1=1;
+LATE2=1;
 _delay((unsigned long)((40)*(8000000/4000000.0)));
 
-LATE1=0;
+LATE2=0;
 }
 void BorraLCD(void){
 
@@ -5809,14 +5809,14 @@ HabilitaLCD();
 RetardoLCD(2);
 }
 
-# 128
+# 129
 void ComandoLCD(unsigned char data){
 
 LATE0 = 0;
 LATD = data;
-LATE1 = 1;
+LATE2 = 1;
 _delay((unsigned long)((5)*(8000000/4000000.0)));
-LATE1 = 0;
+LATE2 = 0;
 _delay((unsigned long)((5)*(8000000/4000000.0)));
 _delay((unsigned long)((2)*(8000000/4000.0)));
 }
@@ -5839,7 +5839,7 @@ HabilitaLCD();
 RetardoLCD(4);
 }
 
-# 246
+# 247
 void MensajeLCD_Word(char* a){
 
 
@@ -5861,7 +5861,7 @@ HabilitaLCD();
 RetardoLCD(4);
 }
 
-# 294
+# 295
 void RetardoLCD(unsigned char a){
 switch(a){
 case 1: _delay((unsigned long)((15)*(8000000/4000.0)));
@@ -5885,45 +5885,66 @@ break;
 # 17 "Proyecto.c"
 int contador = 0;
 int duty = 0;
-unsigned char Temp, Hum;
+unsigned char Temp, Humedad;
+unsigned char cara[]={
+0b00000000,
+0b00001010,
+0b00001010,
+0b00001010,
+0b00000000,
+0b00011111,
+0b00001110,
+0b00000000
+};
+unsigned char Tecla;
+unsigned char Cont = 6;
+unsigned char ing = 0;
+int c = 1000000;
 
-# 27
+
+#pragma config PBADEN = OFF
+#pragma config WDT = OFF
+#pragma config LVP=OFF
+
+# 46
 unsigned char LeerTeclado(void);
 unsigned char LeerByte(void);
 unsigned char LeerBit(void);
 void Transmitir(unsigned char);
 unsigned char Recibir(void);
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2);
+void LeerHT11(void);
 
 void main(void){
 
-TRISB = 0;
+TRISC = 0;
 OSCCON = 0b11110110;
 
 TRISD = 0;
 TRISE0 = 0;
+TRISE2 = 0;
 TRISE1 = 0;
 InicializaLCD();
 BorraLCD();
 
 
-INTEDG0 = 1;
-INT0IF = 0;
-INT0IE = 1;
-PEIE = 1;
-
-
 ADCON0 = 0b00000001;
-ADCON1 = 13;
+ADCON1 = 0b00001100;
 ADCON2 = 0b10001000;
 
 
-T0CON = 0b0000110;
-TMR0 = 49911;
-TMR0IF = 0;
-TMR0IE = 1;
-TMR0ON = 1;
-GIE = 1;
+TRISB=0b11110000;
+RBPU=0;
+RBIF=0;
+RBIE=1;
+
+
+T0CON=0b00000011;
+TMR0IF=0;
+TMR0=64911;
+TMR0IE=1;
+GIE=1;
+TMR0ON=1;
 
 
 TRISC2 = 0;
@@ -5941,22 +5962,44 @@ TXSTA = 0b00100000;
 RCSTA = 0b10010000;
 SPBRG = 12;
 
-while(1){
 
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+BorraLCD();
+NuevoCaracter(0,cara);
+DireccionaLCD(0x82);
+EscribeLCD_c(0);
+MensajeLCD_Word("Bienvenido");
+EscribeLCD_c(0);
+DireccionaLCD(0xC7);
+_delay((unsigned long)((1500)*(8000000/4000.0)));
+DireccionaLCD(0x80);
+MensajeLCD_Word("                ");
+DireccionaLCD(0x80);
+MensajeLCD_Word("Password:");
+while(ing!=Cont){
+DireccionaLCD(0xC1);
+MensajeLCD_Word("                ");
+}
+DireccionaLCD(0x80);
+MensajeLCD_Word("                ");
+while(1){
+_delay((unsigned long)((500)*(8000000/4000.0)));
+LeerHT11();
+TransmitirDatos(0, 0);
 }
 }
 
 void LeerHT11(void) {
 
-TRISC2 = 0;
+TRISC0 = 0;
 _delay((unsigned long)((18)*(8000000/4000.0)));
-TRISC2 = 1;
+TRISC0 = 1;
 
-while (RC2 == 1);
+while (RC0 == 1);
 _delay((unsigned long)((120)*(8000000/4000000.0)));
-while (RC2 == 1);
+while (RC0 == 1);
 
-Hum = LeerByte();
+Humedad = LeerByte();
 LeerByte();
 Temp = LeerByte();
 LeerByte();
@@ -5973,50 +6016,70 @@ return res;
 
 unsigned char LeerBit(void) {
 unsigned char res = 0;
-while (RC2 == 0);
+while (RC0 == 0);
 _delay((unsigned long)((13)*(8000000/4000000.0)));
-if (RC2 == 1) res = 0;
+if (RC0 == 1) res = 0;
 _delay((unsigned long)((22)*(8000000/4000000.0)));
-if (RC2 == 1) {
+if (RC0 == 1) {
 res = 1;
-while (RC2 == 1);
+while (RC0 == 1);
 }
 return res;
 }
 
 unsigned char LeerTeclado(void){
+switch (Tecla){
+case 1:
+Tecla='1';
+break;
+case 2:
+Tecla='2';
+break;
+case 3:
+Tecla='3';
+break;
+case 4:
+Tecla='+';
+break;
+case 5:
+Tecla='4';
+break;
+case 6:
+Tecla ='5';
+break;
+case 7:
+Tecla='6';
+break;
+case 8:
+Tecla='-';
+break;
+case 9:
+Tecla='7';
+break;
+case 10:
+Tecla='8';
+break;
+case 11:
+Tecla='9';
+break;
+case 12:
+Tecla='X';
+break;
+case 13:
+Tecla='B';
+break;
+case 14:
+Tecla='0';
+break;
+case 15:
+Tecla='=';
+break;
+case 16:
+Tecla='/';
+break;
+}
+}
 
-while(RB4==1 && RB5==1 && RB6==1 && RB7==1);
-LATB=0b11111110;
-if(RB4==0) return '1';
-else if(RB5==0) return '2';
-else if(RB6==0) return '3';
-else if(RB7==0 & RC6==0) return '+';
-else if(RB7==0 & RC6==1) return '!';
-else{
-LATB=0b11111101;
-if(RB4==0) return '4';
-else if(RB5==0) return '5';
-else if(RB6==0) return '6';
-else if(RB7==0 & RC6==0) return '-';
-else if(RB7==0 & RC6==1) return '^';
-else{
-LATB=0b11111011;
-if(RB4==0) return '7';
-else if(RB5==0) return '8';
-else if(RB6==0) return '9';
-else if(RB7==0) return '/';
-else{
-LATB=0b11110111;
-if(RB4==0) return 'C';
-else if(RB5==0) return '0';
-else if(RB6==0) return '=';
-else if(RB7==0) return 'x';
-}
-}
-}
-return ' ';
-}
 
 void Transmitir(unsigned char BufferT) {
 while (TRMT == 0);
@@ -6029,22 +6092,120 @@ return RCREG;
 }
 
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
-Transmitir(Ent1);
+unsigned int n = Ent1 * 10 + Ent2, TempC = Temp, HumedadC = Humedad;
+unsigned int Simb = 67;
+BorraLCD();
+switch (n) {
+case 00:
+TempC = Temp;
+Simb = 67;
+break;
+case 01:
+TempC = Temp + 273;
+Simb = 75;
+break;
+case 10:
+TempC = Temp * 9 / 5 + 492;
+Simb = 82;
+break;
+case 11:
+TempC = Temp * 9 / 5 + 32;
+Simb = 70;
+break;
+}
+Transmitir('T');
+Transmitir('e');
+Transmitir('m');
+Transmitir('p');
+Transmitir(':');
+Transmitir(' ');
+
+MensajeLCD_Word("Temp:");
+if (TempC / 100 > 0) {
+Transmitir(TempC / 100 + 48);
+EscribeLCD_c(TempC / 100 + 48);
+TempC = TempC % 100;
+}
+Transmitir(TempC / 10 + 48);
+Transmitir(TempC % 10 + 48);
+Transmitir(167);
+Transmitir(Simb);
+Transmitir(' ');
+Transmitir('\n');
+Transmitir('H');
+Transmitir('u');
+Transmitir('m');
+Transmitir(':');
+Transmitir(' ');
+Transmitir(Humedad / 10 + 48);
+Transmitir(Humedad % 10 + 48);
+Transmitir(' ');
+Transmitir('%');
+Transmitir('\n');
+Transmitir(' ');
+
+EscribeLCD_c(TempC / 10 + 48);
+EscribeLCD_c(TempC % 10 + 48);
+EscribeLCD_c(Simb);
+DireccionaLCD(192);
+MensajeLCD_Word("Hum:");
+EscribeLCD_c(Humedad / 10 + 48);
+EscribeLCD_c(Humedad % 10 + 48);
+EscribeLCD_c('%');
+
 }
 
 void __interrupt() ISR(void){
 if(TMR0IF == 1){
 TMR0IF = 0;
-TMR0 = 49911;
+TMR0 = 64911;
 contador += 1;
-if(contador == 20){
+if(contador == 20000){
+asm(" sleep");
+while(1);
+}
+if(RE1 == 1){
+RC5 = !RC5;
 asm(" sleep");
 while(1);
 }
 }
-if(INT0IF == 1){
-INT0IF = 0;
-asm(" sleep");
-while(1);
+if(RBIF==1){
+if(PORTB!=0b11110000){
+Tecla=0;
+LATB=0b11111110;
+if(RB4==0) Tecla=16;
+else if(RB5==0) Tecla=12;
+else if(RB6==0) Tecla=8;
+else if(RB7==0) Tecla=4;
+else{
+LATB=0b11111101;
+if(RB4==0) Tecla=15;
+else if(RB5==0) Tecla=11;
+else if(RB6==0) Tecla=7;
+else if(RB7==0) Tecla=3;
+else{
+LATB=0b11111011;
+if(RB4==0) Tecla=14;
+else if(RB5==0) Tecla=10;
+else if(RB6==0) Tecla=6;
+else if(RB7==0) Tecla=2;
+else{
+LATB=0b11110111;
+if(RB4==0) Tecla=13;
+else if(RB5==0) Tecla=9;
+else if(RB6==0) Tecla=5;
+else if(RB7==0) Tecla=1;
+}
+}
+}
+LATB=0b11110000;
+ing = Tecla;
+LeerTeclado();
+EscribeLCD_c(Tecla);
+}
+RBIF=0;
+_delay((unsigned long)((300)*(8000000/4000.0)));
+
 }
 }

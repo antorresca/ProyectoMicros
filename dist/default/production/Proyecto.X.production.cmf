@@ -12,23 +12,45 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\Proyecto.X.production.obj
-cinit CODE 0 154 154 2C 1 2
+cinit CODE 0 115E 115E 3A 1 2
 idloc IDLOC 5 200000 200000 8 1 1
-intcode_body CODE 0 124 124 30 1 2
-text0 CODE 0 12 12 6A 1 2
-text1 CODE 0 E2 E2 42 1 2
-text2 CODE 0 180 180 14 1 2
-text3 CODE 0 1A2 1A2 8 1 2
-text4 CODE 0 7C 7C 66 1 2
-text5 CODE 0 194 194 E 1 2
-idataCOMRAM CODE 0 1AA 1AA 1 1 1
-cstackCOMRAM COMRAM 1 7 7 3 1 1
-temp COMRAM 1 B B 1 1 1
+intcode_body CODE 0 BFC BFC 106 1 2
+text0 CODE 0 AC4 AC4 138 1 2
+text1 CODE 0 834 834 290 1 2
+text2 CODE 0 1294 1294 26 1 2
+text3 CODE 0 10E0 10E0 42 1 2
+text4 CODE 0 FB4 FB4 52 1 2
+text5 CODE 0 126A 126A 2A 1 2
+text6 CODE 0 1198 1198 3A 1 2
+text7 CODE 0 E64 E64 84 1 2
+text8 CODE 0 135A 135A C 1 2
+text9 CODE 0 1006 1006 4E 1 2
+text10 CODE 0 12DC 12DC 16 1 2
+text11 CODE 0 1122 1122 3C 1 2
+text12 CODE 0 12F2 12F2 16 1 2
+text13 CODE 0 123C 123C 2E 1 2
+text14 CODE 0 11D2 11D2 3A 1 2
+text15 CODE 0 12BA 12BA 22 1 2
+text16 CODE 0 120C 120C 30 1 2
+text17 CODE 0 DC8 DC8 9C 1 2
+text18 CODE 0 131E 131E 14 1 2
+text19 CODE 0 1054 1054 46 1 2
+text20 CODE 0 EE8 EE8 66 1 2
+text21 CODE 0 1332 1332 E 1 2
+text23 CODE 0 1308 1308 16 1 2
+text24 CODE 0 109A 109A 46 1 2
+text25 CODE 0 F4E F4E 66 1 2
+text26 CODE 0 1340 1340 E 1 2
+text27 CODE 0 D02 D02 C6 1 2
+idataCOMRAM CODE 0 134E 134E C 1 1
+cstackCOMRAM COMRAM 1 1 1 1E 1 1
+temp COMRAM 1 33 33 1 1 1
 intcode CODE 0 8 8 6 1 2
-dataCOMRAM COMRAM 1 A A 1 1 1
-bssCOMRAM COMRAM 1 1 1 6 1 1
+smallconst SMALLCONST 0 800 800 34 1 2
+dataCOMRAM COMRAM 1 1F 1F C 1 1
+bssCOMRAM COMRAM 1 2B 2B 8 1 1
 config CONFIG 4 300000 300000 E 1 1
-$C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+$C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
 idloc IDLOC 5 200000 200000 8 1 1
 init CODE 0 E E 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -50,15 +72,17 @@ BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
 CONST 4-7 1
-CONST 1AB-7FFF 1
-SMALLCONST 800-7FFF 1
+CONST 12-7FF 1
+CONST 1366-7FFF 1
+SMALLCONST 1366-7FFF 1
 CODE 4-7 1
-CODE 1AB-7FFF 1
-BIGRAM C-7FF 1
+CODE 12-7FF 1
+CODE 1366-7FFF 1
+BIGRAM 34-7FF 1
 BIGSFR F60-FFF 1
-COMRAM C-5F 1
+COMRAM 34-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 800-7FFF 1
+MEDIUMCONST 1366-7FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -73,126 +97,506 @@ MEDIUMCONST 800-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Proyecto.X.production.obj
-8 intcode CODE >1623:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-8 intcode CODE >171:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-124 intcode_body CODE >171:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-126 intcode_body CODE >172:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-12A intcode_body CODE >173:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-12C intcode_body CODE >174:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-134 intcode_body CODE >175:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-138 intcode_body CODE >176:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-142 intcode_body CODE >177:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-144 intcode_body CODE >178:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-146 intcode_body CODE >180:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-146 intcode_body CODE >181:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-14A intcode_body CODE >182:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-14C intcode_body CODE >183:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-14E intcode_body CODE >184:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-150 intcode_body CODE >186:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-194 text5 CODE >107:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-194 text5 CODE >109:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-196 text5 CODE >110:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-19E text5 CODE >112:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-1A0 text5 CODE >113:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-7C text4 CODE >294:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-7E text4 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-80 text4 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-90 text4 CODE >298:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-92 text4 CODE >299:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-A0 text4 CODE >300:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-B0 text4 CODE >302:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-B2 text4 CODE >303:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-BA text4 CODE >305:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-BC text4 CODE >306:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-C4 text4 CODE >308:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-C6 text4 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-CA text4 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-D0 text4 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-D6 text4 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-DC text4 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-1A2 text3 CODE >61:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-1A4 text3 CODE >70:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-1A8 text3 CODE >72:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-180 text2 CODE >114:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-180 text2 CODE >116:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-182 text2 CODE >117:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-188 text2 CODE >118:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-18C text2 CODE >119:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-192 text2 CODE >120:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-E2 text1 CODE >73:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-E2 text1 CODE >75:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-E4 text1 CODE >79:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-E8 text1 CODE >80:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-EC text1 CODE >81:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-F2 text1 CODE >85:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-F6 text1 CODE >86:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-FA text1 CODE >87:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-100 text1 CODE >91:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-104 text1 CODE >92:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-108 text1 CODE >93:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-10E text1 CODE >102:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-112 text1 CODE >103:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-118 text1 CODE >104:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-11C text1 CODE >105:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-122 text1 CODE >106:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
-12 text0 CODE >34:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-12 text0 CODE >36:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-16 text0 CODE >37:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-1A text0 CODE >39:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-1E text0 CODE >40:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-20 text0 CODE >41:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-22 text0 CODE >42:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-26 text0 CODE >43:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-2A text0 CODE >46:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-2C text0 CODE >47:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-2E text0 CODE >48:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-30 text0 CODE >49:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-32 text0 CODE >52:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-36 text0 CODE >53:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-3A text0 CODE >54:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-3E text0 CODE >57:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-42 text0 CODE >58:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-4A text0 CODE >59:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-4C text0 CODE >60:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-4E text0 CODE >61:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-50 text0 CODE >62:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-52 text0 CODE >65:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-54 text0 CODE >66:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-58 text0 CODE >67:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-5C text0 CODE >68:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-60 text0 CODE >69:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-64 text0 CODE >70:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-68 text0 CODE >71:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-6A text0 CODE >74:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-6C text0 CODE >75:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-6E text0 CODE >76:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-72 text0 CODE >77:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-76 text0 CODE >78:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-7A text0 CODE >80:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-154 cinit CODE >561:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-154 cinit CODE >563:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-154 cinit CODE >566:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-154 cinit CODE >597:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-156 cinit CODE >598:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-158 cinit CODE >599:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-15A cinit CODE >600:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-15C cinit CODE >601:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-15E cinit CODE >602:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-160 cinit CODE >603:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-162 cinit CODE >604:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-166 cinit CODE >608:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-168 cinit CODE >609:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-16A cinit CODE >610:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-16C cinit CODE >611:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-16E cinit CODE >612:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-170 cinit CODE >613:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-172 cinit CODE >619:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-172 cinit CODE >621:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-174 cinit CODE >622:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-176 cinit CODE >624:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-178 cinit CODE >625:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-17A cinit CODE >626:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
-17C cinit CODE >627:C:\Users\Andres\AppData\Local\Temp\xcAs8gk.as
+8 intcode CODE >4811:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+8 intcode CODE >294:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D02 text27 CODE >166:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D02 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D04 text27 CODE >169:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D08 text27 CODE >170:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D0A text27 CODE >172:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D0E text27 CODE >173:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D10 text27 CODE >175:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D14 text27 CODE >176:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D16 text27 CODE >178:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D1A text27 CODE >179:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D1C text27 CODE >181:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D20 text27 CODE >182:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D22 text27 CODE >184:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D26 text27 CODE >185:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D28 text27 CODE >187:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D2C text27 CODE >188:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D2E text27 CODE >190:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D32 text27 CODE >191:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D34 text27 CODE >193:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D38 text27 CODE >194:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D3A text27 CODE >196:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D3E text27 CODE >197:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D40 text27 CODE >199:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D44 text27 CODE >200:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D46 text27 CODE >202:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D4A text27 CODE >203:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D4C text27 CODE >205:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D50 text27 CODE >206:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D52 text27 CODE >208:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D56 text27 CODE >209:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D58 text27 CODE >211:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D5C text27 CODE >212:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D5E text27 CODE >214:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D62 text27 CODE >215:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D64 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D68 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D6E text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D74 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D7A text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D80 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D86 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D8C text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D92 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D98 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+D9E text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+DA4 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+DAA text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+DB0 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+DB6 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+DBC text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+DC2 text27 CODE >167:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1340 text26 CODE >108:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1340 text26 CODE >110:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1342 text26 CODE >111:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+134A text26 CODE >113:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+134C text26 CODE >114:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F4E text25 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F50 text25 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F52 text25 CODE >297:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F62 text25 CODE >299:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F64 text25 CODE >300:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F72 text25 CODE >301:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F82 text25 CODE >303:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F84 text25 CODE >304:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F8C text25 CODE >306:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F8E text25 CODE >307:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F96 text25 CODE >309:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F98 text25 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F9C text25 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+FA2 text25 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+FA8 text25 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+FAE text25 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+109A text24 CODE >62:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+109C text24 CODE >63:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+10A4 text24 CODE >64:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+10B4 text24 CODE >65:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+10B8 text24 CODE >66:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+10BE text24 CODE >67:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+10D0 text24 CODE >70:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+10DA text24 CODE >71:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+10DE text24 CODE >73:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1308 text23 CODE >148:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+130A text23 CODE >152:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+130C text23 CODE >153:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1312 text23 CODE >154:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1316 text23 CODE >155:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+131C text23 CODE >156:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+BFC intcode_body CODE >294:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BFE intcode_body CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C02 intcode_body CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C04 intcode_body CODE >297:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C0C intcode_body CODE >298:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C10 intcode_body CODE >299:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C1E intcode_body CODE >300:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C20 intcode_body CODE >301:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C22 intcode_body CODE >302:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C22 intcode_body CODE >303:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C26 intcode_body CODE >304:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C30 intcode_body CODE >305:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C32 intcode_body CODE >306:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C34 intcode_body CODE >308:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C34 intcode_body CODE >309:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C38 intcode_body CODE >310:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C40 intcode_body CODE >311:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C44 intcode_body CODE >312:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C48 intcode_body CODE >313:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C50 intcode_body CODE >314:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C58 intcode_body CODE >315:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C60 intcode_body CODE >316:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C68 intcode_body CODE >318:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C6C intcode_body CODE >319:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C74 intcode_body CODE >320:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C7C intcode_body CODE >321:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C84 intcode_body CODE >322:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C8C intcode_body CODE >324:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C90 intcode_body CODE >325:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+C98 intcode_body CODE >326:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CA0 intcode_body CODE >327:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CA8 intcode_body CODE >328:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CB0 intcode_body CODE >330:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CB4 intcode_body CODE >331:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CBC intcode_body CODE >332:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CC4 intcode_body CODE >333:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CCC intcode_body CODE >334:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CD4 intcode_body CODE >335:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CD4 intcode_body CODE >338:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CD8 intcode_body CODE >339:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CDC intcode_body CODE >340:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CE0 intcode_body CODE >341:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CE6 intcode_body CODE >343:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CE8 intcode_body CODE >344:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+CFE intcode_body CODE >347:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1332 text21 CODE >108:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1332 text21 CODE >110:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1334 text21 CODE >111:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+133C text21 CODE >113:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+133E text21 CODE >114:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+EE8 text20 CODE >295:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+EEA text20 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+EEC text20 CODE >297:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+EFC text20 CODE >299:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+EFE text20 CODE >300:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F0C text20 CODE >301:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F1C text20 CODE >303:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F1E text20 CODE >304:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F26 text20 CODE >306:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F28 text20 CODE >307:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F30 text20 CODE >309:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F32 text20 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F36 text20 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F3C text20 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F42 text20 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+F48 text20 CODE >296:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1054 text19 CODE >62:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1056 text19 CODE >63:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+105E text19 CODE >64:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+106E text19 CODE >65:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1072 text19 CODE >66:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1078 text19 CODE >67:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+108A text19 CODE >70:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1094 text19 CODE >71:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1098 text19 CODE >73:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+131E text18 CODE >115:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+131E text18 CODE >117:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1320 text18 CODE >118:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1326 text18 CODE >119:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+132A text18 CODE >120:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1330 text18 CODE >121:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DC8 text17 CODE >74:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DC8 text17 CODE >76:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DCA text17 CODE >77:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DD2 text17 CODE >78:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DDA text17 CODE >80:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DDE text17 CODE >81:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DE2 text17 CODE >82:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DE8 text17 CODE >83:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DF0 text17 CODE >84:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DF8 text17 CODE >86:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+DFC text17 CODE >87:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E00 text17 CODE >88:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E06 text17 CODE >89:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E0E text17 CODE >90:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E16 text17 CODE >92:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E1A text17 CODE >93:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E1E text17 CODE >94:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E24 text17 CODE >95:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E2C text17 CODE >96:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E34 text17 CODE >97:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E38 text17 CODE >98:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E3E text17 CODE >99:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E44 text17 CODE >100:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E48 text17 CODE >101:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E4E text17 CODE >103:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E52 text17 CODE >104:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E58 text17 CODE >105:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E5C text17 CODE >106:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+E62 text17 CODE >107:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+120C text16 CODE >153:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+120C text16 CODE >154:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1210 text16 CODE >155:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1214 text16 CODE >156:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+121C text16 CODE >157:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1224 text16 CODE >158:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+122C text16 CODE >159:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1230 text16 CODE >160:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1234 text16 CODE >161:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1238 text16 CODE >163:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+123A text16 CODE >164:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+12BA text15 CODE >145:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+12BA text15 CODE >146:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+12BE text15 CODE >147:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+12C2 text15 CODE >148:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+12D0 text15 CODE >147:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+12D8 text15 CODE >150:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+12DA text15 CODE >151:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11D2 text14 CODE >128:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11D2 text14 CODE >130:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11D4 text14 CODE >131:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11E2 text14 CODE >132:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11E4 text14 CODE >134:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11E8 text14 CODE >135:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11EE text14 CODE >136:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11F2 text14 CODE >138:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11F8 text14 CODE >139:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+11FC text14 CODE >140:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1202 text14 CODE >141:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1206 text14 CODE >142:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+120A text14 CODE >143:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+123C text13 CODE >129:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+123E text13 CODE >131:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1240 text13 CODE >132:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1244 text13 CODE >133:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1246 text13 CODE >134:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+124E text13 CODE >135:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1250 text13 CODE >136:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1258 text13 CODE >137:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1268 text13 CODE >138:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12F2 text12 CODE >148:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12F4 text12 CODE >152:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12F6 text12 CODE >153:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12FC text12 CODE >154:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1300 text12 CODE >155:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1306 text12 CODE >156:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1122 text11 CODE >140:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1124 text11 CODE >142:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1130 text11 CODE >143:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1138 text11 CODE >144:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1146 text11 CODE >143:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+115C text11 CODE >146:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12DC text10 CODE >259:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12DE text10 CODE >262:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12E0 text10 CODE >263:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12E6 text10 CODE >264:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12EA text10 CODE >265:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+12F0 text10 CODE >266:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1006 text9 CODE >247:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1006 text9 CODE >251:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+100E text9 CODE >252:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1026 text9 CODE >255:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+103C text9 CODE >251:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+1052 text9 CODE >257:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+135A text8 CODE >220:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+135C text8 CODE >221:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1360 text8 CODE >222:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+1364 text8 CODE >223:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+E64 text7 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E64 text7 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E68 text7 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E6C text7 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E74 text7 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E78 text7 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E7C text7 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E84 text7 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E88 text7 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E90 text7 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E98 text7 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E9C text7 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+E9E text7 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EA4 text7 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EA6 text7 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EAA text7 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EB0 text7 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EBC text7 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EC4 text7 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EC6 text7 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+ECC text7 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+ED0 text7 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+ED6 text7 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EDE text7 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+EE6 text7 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
+1198 text6 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+119A text6 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+119E text6 CODE >10:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11A4 text6 CODE >11:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11A8 text6 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11AA text6 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11AE text6 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11B0 text6 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11B4 text6 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11B8 text6 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11C0 text6 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11C4 text6 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11C6 text6 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11CA text6 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11CE text6 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+11D0 text6 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
+126A text5 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+126C text5 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+1270 text5 CODE >10:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+1274 text5 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+127C text5 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+1280 text5 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+1288 text5 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+128C text5 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+1290 text5 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+1292 text5 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
+FB4 text4 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FB4 text4 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FBC text4 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FC4 text4 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FC8 text4 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FCA text4 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FD0 text4 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FD2 text4 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FD6 text4 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FDC text4 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FE8 text4 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FF0 text4 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FF2 text4 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FF8 text4 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FFC text4 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+FFC text4 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+1004 text4 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
+10E0 text3 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+10E0 text3 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+10E8 text3 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+10EC text3 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+10EE text3 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+10F4 text3 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+10F6 text3 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+10FA text3 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+1106 text3 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+110E text3 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+1114 text3 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+1118 text3 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+1118 text3 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+1120 text3 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
+1294 text2 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+1294 text2 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+12A0 text2 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+12A8 text2 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+12B0 text2 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+12B8 text2 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
+834 text1 CODE >230:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+834 text1 CODE >231:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+85A text1 CODE >232:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+862 text1 CODE >233:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+866 text1 CODE >234:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+868 text1 CODE >235:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+868 text1 CODE >236:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+86E text1 CODE >237:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+876 text1 CODE >240:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+882 text1 CODE >241:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+88A text1 CODE >244:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8AE text1 CODE >245:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8B6 text1 CODE >248:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8DA text1 CODE >249:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8E2 text1 CODE >250:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8E4 text1 CODE >234:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8F0 text1 CODE >234:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8F8 text1 CODE >234:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+8FE text1 CODE >234:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+904 text1 CODE >234:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+90A text1 CODE >234:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+90E text1 CODE >252:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+914 text1 CODE >253:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+91A text1 CODE >254:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+920 text1 CODE >255:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+926 text1 CODE >256:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+92C text1 CODE >257:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+932 text1 CODE >259:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+93A text1 CODE >260:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+956 text1 CODE >261:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+972 text1 CODE >262:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+98E text1 CODE >263:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9AA text1 CODE >264:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9AA text1 CODE >265:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9C6 text1 CODE >266:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9E2 text1 CODE >267:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9E8 text1 CODE >268:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9EE text1 CODE >269:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9F4 text1 CODE >270:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+9FA text1 CODE >271:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A00 text1 CODE >272:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A06 text1 CODE >273:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A0C text1 CODE >274:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A12 text1 CODE >275:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A18 text1 CODE >276:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A28 text1 CODE >277:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A38 text1 CODE >278:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A3E text1 CODE >279:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A44 text1 CODE >280:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A4A text1 CODE >281:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A50 text1 CODE >283:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A6C text1 CODE >284:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A88 text1 CODE >285:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A8E text1 CODE >286:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A94 text1 CODE >287:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+A9C text1 CODE >288:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AAC text1 CODE >289:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+ABC text1 CODE >290:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AC2 text1 CODE >292:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AC4 text0 CODE >54:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AC4 text0 CODE >56:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AC8 text0 CODE >57:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+ACC text0 CODE >59:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AD0 text0 CODE >60:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AD2 text0 CODE >61:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AD4 text0 CODE >62:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AD6 text0 CODE >63:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+ADA text0 CODE >64:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+ADE text0 CODE >67:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AE2 text0 CODE >68:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AE6 text0 CODE >69:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AEA text0 CODE >72:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AEE text0 CODE >73:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AF0 text0 CODE >74:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AF2 text0 CODE >75:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AF4 text0 CODE >78:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AF8 text0 CODE >79:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+AFA text0 CODE >80:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B02 text0 CODE >81:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B04 text0 CODE >82:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B06 text0 CODE >83:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B08 text0 CODE >86:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B0A text0 CODE >87:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B0E text0 CODE >88:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B12 text0 CODE >89:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B16 text0 CODE >90:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B1A text0 CODE >91:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B1E text0 CODE >92:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B20 text0 CODE >95:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B22 text0 CODE >96:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B24 text0 CODE >97:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B28 text0 CODE >98:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B2C text0 CODE >99:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B30 text0 CODE >102:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B46 text0 CODE >103:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B4A text0 CODE >104:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B54 text0 CODE >105:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B5A text0 CODE >106:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B60 text0 CODE >107:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B68 text0 CODE >108:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B6E text0 CODE >109:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B74 text0 CODE >110:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B8A text0 CODE >111:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B90 text0 CODE >112:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B98 text0 CODE >113:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+B9E text0 CODE >114:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BA6 text0 CODE >115:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BA8 text0 CODE >116:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BAE text0 CODE >117:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BB6 text0 CODE >115:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BBE text0 CODE >119:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BC4 text0 CODE >120:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BCC text0 CODE >122:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BE2 text0 CODE >123:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+BE6 text0 CODE >124:C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+115E cinit CODE >709:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+115E cinit CODE >711:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+115E cinit CODE >714:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+115E cinit CODE >770:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1160 cinit CODE >771:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1162 cinit CODE >772:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1164 cinit CODE >773:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1166 cinit CODE >774:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1168 cinit CODE >775:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+116A cinit CODE >776:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+116E cinit CODE >777:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1172 cinit CODE >778:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1172 cinit CODE >779:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1174 cinit CODE >780:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1178 cinit CODE >781:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+117A cinit CODE >782:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+117C cinit CODE >783:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+117E cinit CODE >787:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1182 cinit CODE >788:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1184 cinit CODE >789:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1184 cinit CODE >790:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1186 cinit CODE >791:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1188 cinit CODE >792:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+118A cinit CODE >798:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+118A cinit CODE >800:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+118C cinit CODE >801:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+118E cinit CODE >803:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1190 cinit CODE >804:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1192 cinit CODE >805:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
+1194 cinit CODE >806:C:\Users\Andres\AppData\Local\Temp\xcAsfko.as
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -205,79 +609,120 @@ FA text1 CODE >87:C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__end_of_InicializaLCD 124 0 CODE 0 text1 dist/default/production\Proyecto.X.production.obj
+_c 1F 0 COMRAM 1 dataCOMRAM dist/default/production\Proyecto.X.production.obj
+___awdiv@counter C 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_of_InicializaLCD E64 0 CODE 0 text17 dist/default/production\Proyecto.X.production.obj
+___lwmod@counter C 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Proyecto.X.production.obj
-EnviaDato@a 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
-__Hspace_0 800 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-__Hspace_1 C 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+EnviaDato@a B 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__Hspace_0 1366 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+__Hspace_1 34 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+i2_HabilitaLCD 1340 0 CODE 0 text26 dist/default/production\Proyecto.X.production.obj
+MensajeLCD_Word@a D 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+MensajeLCD_Word@i F 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Proyecto.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-__end_of_EnviaDato 1AA 0 CODE 0 text3 dist/default/production\Proyecto.X.production.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+__end_of_EnviaDato 109A 0 CODE 0 text19 dist/default/production\Proyecto.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Proyecto.X.production.obj
-__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\Proyecto.X.production.obj
+__Lsmallconst 800 0 SMALLCONST 0 smallconst dist/default/production\Proyecto.X.production.obj
+_Cont 21 0 COMRAM 1 dataCOMRAM dist/default/production\Proyecto.X.production.obj
 _LATB F8A 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _LATD F8C 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-_PEIE 7F96 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RBIE 7F93 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RBIF 7F90 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RBPU 7F8F 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _RCIF 7CF5 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TMR0 FD6 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TMR2 FCC 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-_Temp 6 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-_duty 1 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
-_main 12 0 CODE 0 text0 dist/default/production\Proyecto.X.production.obj
-btemp B 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
-start E 0 CODE 0 init C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+_TRMT 7D61 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_Temp 32 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+_cara 23 0 COMRAM 1 dataCOMRAM dist/default/production\Proyecto.X.production.obj
+_duty 2B 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
+_main AC4 0 CODE 0 text0 dist/default/production\Proyecto.X.production.obj
+btemp 33 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+start E 0 CODE 0 init C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+_LeerTeclado D02 0 CODE 0 text27 dist/default/production\Proyecto.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Proyecto.X.production.obj
-__end_of_RetardoLCD E2 0 CODE 0 text4 dist/default/production\Proyecto.X.production.obj
-_EnviaDato 1A2 0 CODE 0 text3 dist/default/production\Proyecto.X.production.obj
+__end_of_RetardoLCD F4E 0 CODE 0 text20 dist/default/production\Proyecto.X.production.obj
+?___wmul 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+_EnviaDato 1054 0 CODE 0 text19 dist/default/production\Proyecto.X.production.obj
+LeerBit@res 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hpowerup E 0 CODE 0 powerup dist/default/production\Proyecto.X.production.obj
-ttemp5 C 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
-ttemp6 F 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
-ttemp7 13 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+ttemp5 34 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+ttemp6 37 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+ttemp7 3B 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\Proyecto.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-intlevel0 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-intlevel1 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-intlevel2 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-intlevel3 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+Transmitir@BufferT 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+intlevel0 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+intlevel1 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+intlevel2 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+intlevel3 0 0 CODE 0 text C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Proyecto.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Proyecto.X.production.obj
-wtemp8 C 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+wtemp8 34 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+TransmitirDatos@Ent1 11 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+TransmitirDatos@Ent2 13 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+TransmitirDatos@Simb 19 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\Proyecto.X.production.obj
+___awdiv@sign D 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\Proyecto.X.production.obj
-__pidataCOMRAM 1AA 0 CODE 0 idataCOMRAM dist/default/production\Proyecto.X.production.obj
+__pidataCOMRAM 134E 0 CODE 0 idataCOMRAM dist/default/production\Proyecto.X.production.obj
+___wmul@multiplicand A 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 _ADCON0 FC2 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _ADCON1 FC1 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _ADCON2 FC0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+___awdiv@dividend 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+_DireccionaLCD 12DC 0 CODE 0 text10 dist/default/production\Proyecto.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\Proyecto.X.production.obj
 _CCPR1L FBE 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\Proyecto.X.production.obj
+__end_of___wmul 12BA 0 CODE 0 text2 dist/default/production\Proyecto.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Proyecto.X.production.obj
-_interfaz A 0 COMRAM 1 dataCOMRAM dist/default/production\Proyecto.X.production.obj
+___lbdiv@dividend 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+___lbmod@divisor 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+_interfaz 22 0 COMRAM 1 dataCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Proyecto.X.production.obj
 __Hintcodelo E 0 CODE 0 intcodelo dist/default/production\Proyecto.X.production.obj
-_INT0IE 7F94 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-_INT0IF 7F91 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+___awdiv@divisor A 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+___lwmod@divisor A 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_of___awdiv EE8 0 CODE 0 text7 dist/default/production\Proyecto.X.production.obj
+__end_of___lbdiv 11D2 0 CODE 0 text6 dist/default/production\Proyecto.X.production.obj
+__end_of___lbmod 1294 0 CODE 0 text5 dist/default/production\Proyecto.X.production.obj
+__end_of___lwdiv 1006 0 CODE 0 text4 dist/default/production\Proyecto.X.production.obj
+__end_of___lwmod 1122 0 CODE 0 text3 dist/default/production\Proyecto.X.production.obj
+DireccionaLCD@a C 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+_Transmitir 135A 0 CODE 0 text8 dist/default/production\Proyecto.X.production.obj
+___lwdiv@quotient C 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_ofi2_HabilitaLCD 134E 0 CODE 0 text26 dist/default/production\Proyecto.X.production.obj
+___lwmod@dividend 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Lintcodelo E 0 CODE 0 intcodelo dist/default/production\Proyecto.X.production.obj
-start_initialization 154 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
+start_initialization 115E 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
+__end_of_TransmitirDatos AC4 0 CODE 0 text1 dist/default/production\Proyecto.X.production.obj
 _OSCCON FD3 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Proyecto.X.production.obj
+LeerByte@res A 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 ___rparam_used 1 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+i2_EnviaDato 109A 0 CODE 0 text24 dist/default/production\Proyecto.X.production.obj
 _TMR0IE 7F95 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TMR0IF 7F92 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TMR0ON 7EAF 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TMR2ON 7E52 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_TRISC0 7CA0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TRISC2 7CA2 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TRISC6 7CA6 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TRISC7 7CA7 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TRISE0 7CB0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TRISE1 7CB1 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-isa$xinst 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+_TRISE2 7CB2 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+isa$xinst 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+___lbdiv@counter A 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\Proyecto.X.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\Proyecto.X.production.obj
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\Proyecto.X.production.obj
@@ -300,12 +745,20 @@ __Htext2 0 0 ABS 0 text2 dist/default/production\Proyecto.X.production.obj
 __Htext3 0 0 ABS 0 text3 dist/default/production\Proyecto.X.production.obj
 __Htext4 0 0 ABS 0 text4 dist/default/production\Proyecto.X.production.obj
 __Htext5 0 0 ABS 0 text5 dist/default/production\Proyecto.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production\Proyecto.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production\Proyecto.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production\Proyecto.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\Proyecto.X.production.obj
+___lwdiv@counter E 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_of_Transmitir 1366 0 CODE 0 text8 dist/default/production\Proyecto.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Proyecto.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\Proyecto.X.production.obj
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\Proyecto.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+__smallconst 800 0 SMALLCONST 0 smallconst C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+i2RetardoLCD@a 2 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\Proyecto.X.production.obj
 __Hconfig 30000E 0 CONFIG 4 config dist/default/production\Proyecto.X.production.obj
+_TransmitirDatos 834 0 CODE 0 text1 dist/default/production\Proyecto.X.production.obj
 __Lbank0 0 0 ABS 0 bank0 dist/default/production\Proyecto.X.production.obj
 __Lbank1 0 0 ABS 0 bank1 dist/default/production\Proyecto.X.production.obj
 __Lbank2 0 0 ABS 0 bank2 dist/default/production\Proyecto.X.production.obj
@@ -316,6 +769,7 @@ __Lbank6 0 0 ABS 0 bank6 dist/default/production\Proyecto.X.production.obj
 __Lbank7 0 0 ABS 0 bank7 dist/default/production\Proyecto.X.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production\Proyecto.X.production.obj
 __Lconst 0 0 CONST 0 const dist/default/production\Proyecto.X.production.obj
+i2_EscribeLCD_c 1308 0 CODE 0 text23 dist/default/production\Proyecto.X.production.obj
 __Lidata 0 0 CODE 0 idata dist/default/production\Proyecto.X.production.obj
 __Lidloc 0 0 IDLOC 5 idloc dist/default/production\Proyecto.X.production.obj
 __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\Proyecto.X.production.obj
@@ -328,6 +782,10 @@ __Ltext2 0 0 ABS 0 text2 dist/default/production\Proyecto.X.production.obj
 __Ltext3 0 0 ABS 0 text3 dist/default/production\Proyecto.X.production.obj
 __Ltext4 0 0 ABS 0 text4 dist/default/production\Proyecto.X.production.obj
 __Ltext5 0 0 ABS 0 text5 dist/default/production\Proyecto.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production\Proyecto.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production\Proyecto.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production\Proyecto.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\Proyecto.X.production.obj
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\Proyecto.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\Proyecto.X.production.obj
 __Habs1 0 0 ABS 0 abs1 dist/default/production\Proyecto.X.production.obj
@@ -336,7 +794,7 @@ __Hheap 0 0 HEAP 7 heap dist/default/production\Proyecto.X.production.obj
 __Hinit 12 0 CODE 0 init dist/default/production\Proyecto.X.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\Proyecto.X.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production\Proyecto.X.production.obj
-__Htemp C 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+__Htemp 34 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
 __Htext 0 0 ABS 0 text dist/default/production\Proyecto.X.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/default/production\Proyecto.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production\Proyecto.X.production.obj
@@ -344,46 +802,111 @@ __Lheap 0 0 HEAP 7 heap dist/default/production\Proyecto.X.production.obj
 __Linit E 0 CODE 0 init dist/default/production\Proyecto.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\Proyecto.X.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production\Proyecto.X.production.obj
-__Ltemp B 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+__Ltemp 33 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
 __Ltext 0 0 ABS 0 text dist/default/production\Proyecto.X.production.obj
-int$flags B 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
+__end_of_LeerTeclado DC8 0 CODE 0 text27 dist/default/production\Proyecto.X.production.obj
+___wmul 1294 0 CODE 0 text2 dist/default/production\Proyecto.X.production.obj
+int$flags 33 0 COMRAM 1 temp dist/default/production\Proyecto.X.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_of_DireccionaLCD 12F2 0 CODE 0 text10 dist/default/production\Proyecto.X.production.obj
 __Hintret 0 0 ABS 0 intret dist/default/production\Proyecto.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/default/production\Proyecto.X.production.obj
 _GIE 7F97 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _ISR 8 0 CODE 0 intcode dist/default/production\Proyecto.X.production.obj
-_Hum 5 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
 _PR2 FCB 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _RB4 7C0C 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-_RC2 7C12 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-__S0 1AB 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-__S1 C 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RB5 7C0D 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RB6 7C0E 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RB7 7C0F 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RC0 7C10 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RC5 7C15 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_RE1 7C21 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+__S0 1366 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+__S1 34 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __S4 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __S5 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-_HabilitaLCD 194 0 CODE 0 text5 dist/default/production\Proyecto.X.production.obj
+_ing 2F 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
+LeerByte@i B 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+_HabilitaLCD 1332 0 CODE 0 text21 dist/default/production\Proyecto.X.production.obj
+i2EscribeLCD_c@a 5 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production\Proyecto.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Proyecto.X.production.obj
-_BorraLCD 180 0 CODE 0 text2 dist/default/production\Proyecto.X.production.obj
+_BorraLCD 131E 0 CODE 0 text18 dist/default/production\Proyecto.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\Proyecto.X.production.obj
-__end_of_ISR 154 0 CODE 0 intcode_body dist/default/production\Proyecto.X.production.obj
-int_func 124 0 CODE 0 intcode_body dist/default/production\Proyecto.X.production.obj
+__end_of_ISR D02 0 CODE 0 intcode_body dist/default/production\Proyecto.X.production.obj
+int_func BFC 0 CODE 0 intcode_body dist/default/production\Proyecto.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production\Proyecto.X.production.obj
-__end_of_BorraLCD 194 0 CODE 0 text2 dist/default/production\Proyecto.X.production.obj
+__end_of_BorraLCD 1332 0 CODE 0 text18 dist/default/production\Proyecto.X.production.obj
+__end_ofi2_EscribeLCD_c 131E 0 CODE 0 text23 dist/default/production\Proyecto.X.production.obj
 __Hramtop 800 0 RAM 0 ramtop dist/default/production\Proyecto.X.production.obj
+NuevoCaracter@addr E 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\Proyecto.X.production.obj
+i2_RetardoLCD F4E 0 CODE 0 text25 dist/default/production\Proyecto.X.production.obj
 __activetblptr 2 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/default/production\Proyecto.X.production.obj
-__pintcode_body 124 0 CODE 0 intcode_body dist/default/production\Proyecto.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\Proyecto.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production\Proyecto.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production\Proyecto.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production\Proyecto.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production\Proyecto.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production\Proyecto.X.production.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production\Proyecto.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\Proyecto.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production\Proyecto.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production\Proyecto.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production\Proyecto.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production\Proyecto.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production\Proyecto.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production\Proyecto.X.production.obj
+__Htext25 0 0 ABS 0 text25 dist/default/production\Proyecto.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production\Proyecto.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/default/production\Proyecto.X.production.obj
+__end_of_LeerBit 123C 0 CODE 0 text16 dist/default/production\Proyecto.X.production.obj
+__ptext10 12DC 0 CODE 0 text10 dist/default/production\Proyecto.X.production.obj
+__ptext11 1122 0 CODE 0 text11 dist/default/production\Proyecto.X.production.obj
+__ptext12 12F2 0 CODE 0 text12 dist/default/production\Proyecto.X.production.obj
+__ptext13 123C 0 CODE 0 text13 dist/default/production\Proyecto.X.production.obj
+__ptext14 11D2 0 CODE 0 text14 dist/default/production\Proyecto.X.production.obj
+__ptext15 12BA 0 CODE 0 text15 dist/default/production\Proyecto.X.production.obj
+__ptext16 120C 0 CODE 0 text16 dist/default/production\Proyecto.X.production.obj
+__ptext17 DC8 0 CODE 0 text17 dist/default/production\Proyecto.X.production.obj
+__ptext18 131E 0 CODE 0 text18 dist/default/production\Proyecto.X.production.obj
+__ptext19 1054 0 CODE 0 text19 dist/default/production\Proyecto.X.production.obj
+__ptext20 EE8 0 CODE 0 text20 dist/default/production\Proyecto.X.production.obj
+__ptext21 1332 0 CODE 0 text21 dist/default/production\Proyecto.X.production.obj
+__ptext23 1308 0 CODE 0 text23 dist/default/production\Proyecto.X.production.obj
+__ptext24 109A 0 CODE 0 text24 dist/default/production\Proyecto.X.production.obj
+__ptext25 F4E 0 CODE 0 text25 dist/default/production\Proyecto.X.production.obj
+__ptext26 1340 0 CODE 0 text26 dist/default/production\Proyecto.X.production.obj
+__ptext27 D02 0 CODE 0 text27 dist/default/production\Proyecto.X.production.obj
+___awdiv E64 0 CODE 0 text7 dist/default/production\Proyecto.X.production.obj
+___lbdiv 1198 0 CODE 0 text6 dist/default/production\Proyecto.X.production.obj
+___lbmod 126A 0 CODE 0 text5 dist/default/production\Proyecto.X.production.obj
+__pintcode_body BFC 0 CODE 0 intcode_body dist/default/production\Proyecto.X.production.obj
+___lwdiv FB4 0 CODE 0 text4 dist/default/production\Proyecto.X.production.obj
+___lwmod 10E0 0 CODE 0 text3 dist/default/production\Proyecto.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Proyecto.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/default/production\Proyecto.X.production.obj
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\Proyecto.X.production.obj
+i2EnviaDato@a 4 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Lcomram 0 0 ABS 0 comram dist/default/production\Proyecto.X.production.obj
 __Lconfig 0 0 CONFIG 4 config dist/default/production\Proyecto.X.production.obj
+_LeerByte 12BA 0 CODE 0 text15 dist/default/production\Proyecto.X.production.obj
+_LeerHT11 11D2 0 CODE 0 text14 dist/default/production\Proyecto.X.production.obj
+NuevoCaracter@c D 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+NuevoCaracter@i F 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+___wmul@multiplier 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+___lbdiv@divisor 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+_NuevoCaracter 1122 0 CODE 0 text11 dist/default/production\Proyecto.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\Proyecto.X.production.obj
+___lwdiv@divisor A 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\Proyecto.X.production.obj
-isa$std 1 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-stackhi 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-stacklo 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+isa$std 1 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+__end_of_LeerByte 12DC 0 CODE 0 text15 dist/default/production\Proyecto.X.production.obj
+__end_of_LeerHT11 120C 0 CODE 0 text14 dist/default/production\Proyecto.X.production.obj
+ComandoLCD@data 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+stackhi 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+stacklo 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
 __Lintcode 8 0 CODE 0 intcode dist/default/production\Proyecto.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\Proyecto.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/default/production\Proyecto.X.production.obj
@@ -391,51 +914,94 @@ __Lspace_0 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Lspace_4 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
+__pbssCOMRAM 2B 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
-_InicializaLCD E2 0 CODE 0 text1 dist/default/production\Proyecto.X.production.obj
-end_of_initialization 172 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
+_InicializaLCD DC8 0 CODE 0 text17 dist/default/production\Proyecto.X.production.obj
+end_of_initialization 118A 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
+_EscribeLCD_c 12F2 0 CODE 0 text12 dist/default/production\Proyecto.X.production.obj
+__end_ofi2_RetardoLCD FB4 0 CODE 0 text25 dist/default/production\Proyecto.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\Proyecto.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production\Proyecto.X.production.obj
+___awdiv@quotient E 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+?___awdiv 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+___lwdiv@dividend 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+?___lwdiv 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+?___lwmod 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_ofi2_EnviaDato 10E0 0 CODE 0 text24 dist/default/production\Proyecto.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\Proyecto.X.production.obj
 __Lramtop 800 0 RAM 0 ramtop dist/default/production\Proyecto.X.production.obj
+_ComandoLCD 123C 0 CODE 0 text13 dist/default/production\Proyecto.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\Proyecto.X.production.obj
-__pcinit 154 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
-__ptext0 12 0 CODE 0 text0 dist/default/production\Proyecto.X.production.obj
-__ptext1 E2 0 CODE 0 text1 dist/default/production\Proyecto.X.production.obj
-__ptext2 180 0 CODE 0 text2 dist/default/production\Proyecto.X.production.obj
-__ptext3 1A2 0 CODE 0 text3 dist/default/production\Proyecto.X.production.obj
-__ptext4 7C 0 CODE 0 text4 dist/default/production\Proyecto.X.production.obj
-__ptext5 194 0 CODE 0 text5 dist/default/production\Proyecto.X.production.obj
+__pcinit 115E 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
+__ptext0 AC4 0 CODE 0 text0 dist/default/production\Proyecto.X.production.obj
+__ptext1 834 0 CODE 0 text1 dist/default/production\Proyecto.X.production.obj
+__ptext2 1294 0 CODE 0 text2 dist/default/production\Proyecto.X.production.obj
+__ptext3 10E0 0 CODE 0 text3 dist/default/production\Proyecto.X.production.obj
+__ptext4 FB4 0 CODE 0 text4 dist/default/production\Proyecto.X.production.obj
+__ptext5 126A 0 CODE 0 text5 dist/default/production\Proyecto.X.production.obj
+__ptext6 1198 0 CODE 0 text6 dist/default/production\Proyecto.X.production.obj
+__ptext7 E64 0 CODE 0 text7 dist/default/production\Proyecto.X.production.obj
+__ptext8 135A 0 CODE 0 text8 dist/default/production\Proyecto.X.production.obj
+__ptext9 1006 0 CODE 0 text9 dist/default/production\Proyecto.X.production.obj
+___lbdiv@quotient B 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\Proyecto.X.production.obj
-__ramtop 800 0 RAM 0 ramtop C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\Proyecto.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production\Proyecto.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production\Proyecto.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production\Proyecto.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production\Proyecto.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production\Proyecto.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production\Proyecto.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\Proyecto.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production\Proyecto.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production\Proyecto.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production\Proyecto.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production\Proyecto.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production\Proyecto.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production\Proyecto.X.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/default/production\Proyecto.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production\Proyecto.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/default/production\Proyecto.X.production.obj
+__ramtop 800 0 RAM 0 ramtop C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+TransmitirDatos@n 17 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+___lbmod@dividend 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Lpowerup E 0 CODE 0 powerup dist/default/production\Proyecto.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Proyecto.X.production.obj
+__psmallconst 800 0 SMALLCONST 0 smallconst dist/default/production\Proyecto.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\Proyecto.X.production.obj
-___heap_hi 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
-___heap_lo 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAs8gk.obj
+___heap_hi 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+___heap_lo 0 0 ABS 0 - C:\Users\Andres\AppData\Local\Temp\xcAsfko.obj
+__end_of_MensajeLCD_Word 1054 0 CODE 0 text9 dist/default/production\Proyecto.X.production.obj
 ___param_bank 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Proyecto.X.production.obj
-__end_of__initialization 172 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
-_INTEDG0 7F8E 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+__end_of__initialization 118A 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\Proyecto.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\Proyecto.X.production.obj
-__pcstackCOMRAM 7 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
-__end_of_main 7C 0 CODE 0 text0 dist/default/production\Proyecto.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_of_EscribeLCD_c 1308 0 CODE 0 text12 dist/default/production\Proyecto.X.production.obj
+TransmitirDatos@TempC 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_of_ComandoLCD 126A 0 CODE 0 text13 dist/default/production\Proyecto.X.production.obj
+___lbmod@rem B 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+_Humedad 31 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
+__end_of_main BFC 0 CODE 0 text0 dist/default/production\Proyecto.X.production.obj
 __pintcode 8 0 CODE 0 intcode dist/default/production\Proyecto.X.production.obj
-__end_of_HabilitaLCD 1A2 0 CODE 0 text5 dist/default/production\Proyecto.X.production.obj
+__end_of_HabilitaLCD 1340 0 CODE 0 text21 dist/default/production\Proyecto.X.production.obj
 _LATE0 7C68 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-_LATE1 7C69 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_LATE2 7C6A 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_PORTB F81 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _RCREG FAE 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _RCSTA FAB 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _SPBRG FAF 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _T0CON FD5 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _T2CON FCA 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TRISB F93 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+_TRISC F94 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TRISD F95 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
+__end_of_NuevoCaracter 115E 0 CODE 0 text11 dist/default/production\Proyecto.X.production.obj
 _TXREG FAD 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 _TXSTA FAC 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-RetardoLCD@a 8 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+RetardoLCD@a 9 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+_Tecla 30 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
 __HRAM 0 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Hbss 0 0 RAM 1 bss dist/default/production\Proyecto.X.production.obj
 __Hram 0 0 ABS 0 ram dist/default/production\Proyecto.X.production.obj
@@ -444,15 +1010,20 @@ __LRAM 1 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
 __Lbss 0 0 RAM 1 bss dist/default/production\Proyecto.X.production.obj
 __Lram 0 0 ABS 0 ram dist/default/production\Proyecto.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\Proyecto.X.production.obj
+EscribeLCD_c@a C 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 _CCP1CON FBD 0 ABS 0 - dist/default/production\Proyecto.X.production.obj
-_RetardoLCD 7C 0 CODE 0 text4 dist/default/production\Proyecto.X.production.obj
-_contador 3 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
-__initialization 154 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
-__pdataCOMRAM A 0 COMRAM 1 dataCOMRAM dist/default/production\Proyecto.X.production.obj
+_MensajeLCD_Word 1006 0 CODE 0 text9 dist/default/production\Proyecto.X.production.obj
+_RetardoLCD EE8 0 CODE 0 text20 dist/default/production\Proyecto.X.production.obj
+_contador 2D 0 COMRAM 1 bssCOMRAM dist/default/production\Proyecto.X.production.obj
+__initialization 115E 0 CODE 0 cinit dist/default/production\Proyecto.X.production.obj
+_LeerBit 120C 0 CODE 0 text16 dist/default/production\Proyecto.X.production.obj
+__pdataCOMRAM 1F 0 COMRAM 1 dataCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\Proyecto.X.production.obj
-__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\Proyecto.X.production.obj
+___wmul@product C 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
+__Hsmallconst 834 0 SMALLCONST 0 smallconst dist/default/production\Proyecto.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/default/production\Proyecto.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Proyecto.X.production.obj
+___lbmod@counter A 0 COMRAM 1 cstackCOMRAM dist/default/production\Proyecto.X.production.obj
 __Hintcode E 0 CODE 0 intcode dist/default/production\Proyecto.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -478,9 +1049,11 @@ __Hintcode E 0 CODE 0 intcode dist/default/production\Proyecto.X.production.obj
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
+text1 0 834 834 B32 1
+cstackCOMRAM 1 1 1 33 1
 reset_vec 0 0 0 4 1
-intcode 0 8 8 1A3 1
-bssCOMRAM 1 1 1 B 1
+intcode 0 8 8 A 1
+smallconst 0 800 800 34 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

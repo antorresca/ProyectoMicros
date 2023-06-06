@@ -6,6 +6,7 @@
  */
 
 #include<stdio.h>
+
 #ifndef LIBLCDXC8_H
 #define	LIBLCDXC8_H
 
@@ -30,7 +31,7 @@ extern "C" {
 #define RS LATE0	//Los pines de control al LCD los cuales se
 #endif
 #ifndef E
-#define E LATE1	//pueden cambiar
+#define E LATE2	//pueden cambiar
 #endif
 
 unsigned char interfaz=8;

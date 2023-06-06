@@ -16,16 +16,31 @@
 //Variables
 int contador = 0;
 int duty = 0;
-unsigned char Temp, Hum;
+unsigned char Temp, Humedad;
+unsigned char cara[]={
+    0b00000000,
+    0b00001010,
+    0b00001010,
+    0b00001010,
+    0b00000000,
+    0b00011111,
+    0b00001110,
+    0b00000000
+    };
+unsigned char Tecla;
+unsigned char Cont = 6;
+unsigned char ing = 0;
+int c = 1000000;
 
 //Configuraciones
 #pragma config PBADEN = OFF
-#pragma 
+#pragma config WDT = OFF
+#pragma config LVP=OFF
 
 #define _XTAL_FREQ 8000000 //Frecuencia de reloj
-#define DATA_DIR TRISC2
-#define DATA_IN RC2
-#define DATA_OUT LATC2
+#define DATA_DIR TRISC0
+#define DATA_IN RC0
+#define DATA_OUT LATC0
 
 //Prototipos
 unsigned char LeerTeclado(void);
@@ -34,14 +49,16 @@ unsigned char LeerBit(void);
 void Transmitir(unsigned char);
 unsigned char Recibir(void);
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2);
+void LeerHT11(void);
 
 void main(void){
     //Configuracion de pines
-    TRISB = 0;
+    TRISC = 0;
     OSCCON = 0b11110110; //Frecuencia a 8MHz
     //Configuracion del LCD
     TRISD = 0;
     TRISE0 = 0;
+    TRISE2 = 0;
     TRISE1 = 0;
     InicializaLCD();
     BorraLCD();
@@ -51,13 +68,19 @@ void main(void){
     ADCON1 = 0b00001100;
     ADCON2 = 0b10001000;
     //Fin de configuracion del ADC
+    //Configuración matricial
+    TRISB=0b11110000;
+    RBPU=0;
+    RBIF=0;
+    RBIE=1;
+    //Fin de configuracion matricial
     //Configuracion del Timer 0
-    T0CON = 0b0000110;
-    TMR0 = 49911; //Precarga para 1 segundo
-    TMR0IF = 0;
-    TMR0IE = 1;
-    TMR0ON = 1;
-    GIE = 1;
+    T0CON=0b00000011;//No habilita timer0, 16 bits de resolucion, reloj interno
+    TMR0IF=0;// apaga bandera
+    TMR0=64911; // valor pre carga
+    TMR0IE=1; //Habilita la interrupcion 
+    GIE=1; //habilita interrupciones globales
+    TMR0ON=1;
     //Fin de configuracion del Timer 0
     //Configuracion para PWM
     TRISC2 = 0; //Canal de salida para PWM
@@ -74,9 +97,31 @@ void main(void){
     TXSTA = 0b00100000;
     RCSTA = 0b10010000;
     SPBRG = 12; 
-    //Fin de configuracion de comunicacion    
-    while(1){
-        
+    //Fin de configuracion de comunicacion  
+    //Protocolo de inicio
+    __delay_ms(1000); //Retraso para evitar errores
+    BorraLCD(); 
+    NuevoCaracter(0,cara);
+    DireccionaLCD(0x82);
+    EscribeLCD_c(0);
+    MensajeLCD_Word("Bienvenido");
+    EscribeLCD_c(0);
+    DireccionaLCD(0xC7);
+    __delay_ms(1500);
+    DireccionaLCD(0x80); //Colocar el cursor en la primera posicion de primera fila
+    MensajeLCD_Word("                "); //Mandar mensaje vacio para limpiar
+    DireccionaLCD(0x80);
+    MensajeLCD_Word("Password:");
+    while(ing!=Cont){
+        DireccionaLCD(0xC1);
+        MensajeLCD_Word("                ");
+    }
+    DireccionaLCD(0x80);
+    MensajeLCD_Word("                ");
+    while(1){        
+        __delay_ms(500);
+        LeerHT11();        
+        TransmitirDatos(0, 0);
     }
 }
 
@@ -90,7 +135,7 @@ void LeerHT11(void) {
     __delay_us(120); //Pulso bajo, respuesta del sensor 80us, posteriormente pulso en alto de una duraci?n similar.
     while (DATA_IN == 1); //Tiempo en alto que dura hasta que el sensor toma control del canal de comunicaci?n
     //Recepci?n de datos
-    Hum = LeerByte();
+    Humedad = LeerByte();
     LeerByte();
     Temp = LeerByte();
     LeerByte();
@@ -119,38 +164,58 @@ unsigned char LeerBit(void) {
 }
 
 unsigned char LeerTeclado(void){
-    //Algoritmo de barrido para teclado matricial
-    while(RB4==1 && RB5==1 && RB6==1 && RB7==1);
-    LATB=0b11111110;
-    if(RB4==0) return '1';
-    else if(RB5==0) return '2';
-    else if(RB6==0) return '3';
-    else if(RB7==0 & RC6==0) return '+';
-    else if(RB7==0 & RC6==1) return '!';
-    else{
-    LATB=0b11111101;
-    if(RB4==0) return '4';
-    else if(RB5==0) return '5';
-    else if(RB6==0) return '6';
-    else if(RB7==0 & RC6==0) return '-';
-    else if(RB7==0 & RC6==1) return '^';
-    else{
-    LATB=0b11111011;
-    if(RB4==0) return '7';
-    else if(RB5==0) return '8';
-    else if(RB6==0) return '9';
-    else if(RB7==0) return '/';
-    else{
-    LATB=0b11110111;
-    if(RB4==0) return 'C';
-    else if(RB5==0) return '0';
-    else if(RB6==0) return '=';
-    else if(RB7==0) return 'x';
+    switch (Tecla){
+        case 1:
+            Tecla='1';
+            break;
+        case 2:
+            Tecla='2';
+            break;
+        case 3: 
+            Tecla='3';
+            break;
+        case 4:
+            Tecla='+';
+            break;
+        case 5:
+            Tecla='4';
+            break;
+        case 6:
+            Tecla ='5';
+            break;
+        case 7:
+            Tecla='6';
+            break;
+        case 8:
+            Tecla='-';
+            break;
+        case 9: 
+            Tecla='7';
+            break;
+        case 10:
+            Tecla='8';
+            break;
+        case 11:
+            Tecla='9';
+            break;
+        case 12:
+            Tecla='X';
+            break;
+        case 13:
+            Tecla='B';
+            break;
+        case 14:
+            Tecla='0';
+            break;
+        case 15:
+            Tecla='=';
+            break;
+        case 16:
+            Tecla='/';
+            break;
     }
-    }
-    }
-    return ' ';
 }
+
 
 void Transmitir(unsigned char BufferT) {
     while (TRMT == 0);
@@ -163,22 +228,120 @@ unsigned char Recibir(void){
 }
 
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
-    Transmitir(Ent1); //Falta colocar que se tiene que tran$mitir
+    unsigned int n = Ent1 * 10 + Ent2, TempC = Temp, HumedadC = Humedad;
+    unsigned int Simb = 67;
+    BorraLCD();
+    switch (n) {
+        case 00://Celsius
+            TempC = Temp;
+            Simb = 67; //C
+            break;
+        case 01://Kelvin
+            TempC = Temp + 273;
+            Simb = 75; //K
+            break;
+        case 10://Rankine
+            TempC = Temp * 9 / 5 + 492;
+            Simb = 82; //R
+            break;
+        case 11://Fahrenheit
+            TempC = Temp * 9 / 5 + 32;
+            Simb = 70; //F
+            break;
+    }
+    Transmitir('T');
+    Transmitir('e');
+    Transmitir('m');
+    Transmitir('p');
+    Transmitir(':');
+    Transmitir(' ');
+
+    MensajeLCD_Word("Temp:");
+    if (TempC / 100 > 0) {
+        Transmitir(TempC / 100 + 48);
+        EscribeLCD_c(TempC / 100 + 48);
+        TempC = TempC % 100;
+    }
+    Transmitir(TempC / 10 + 48);
+    Transmitir(TempC % 10 + 48);
+    Transmitir(167);
+    Transmitir(Simb);
+    Transmitir(' ');
+    Transmitir('\n');
+    Transmitir('H');
+    Transmitir('u');
+    Transmitir('m');
+    Transmitir(':');
+    Transmitir(' ');
+    Transmitir(Humedad / 10 + 48);
+    Transmitir(Humedad % 10 + 48);
+    Transmitir(' ');
+    Transmitir('%');
+    Transmitir('\n');
+    Transmitir(' ');
+    //Imprimir en LCD
+    EscribeLCD_c(TempC / 10 + 48);
+    EscribeLCD_c(TempC % 10 + 48);
+    EscribeLCD_c(Simb);
+    DireccionaLCD(192);
+    MensajeLCD_Word("Hum:");
+    EscribeLCD_c(Humedad / 10 + 48);
+    EscribeLCD_c(Humedad % 10 + 48);
+    EscribeLCD_c('%');
+
 }
 
 void __interrupt() ISR(void){
     if(TMR0IF == 1){
         TMR0IF = 0;
-        TMR0 = 49911;
+        TMR0 = 64911;
         contador += 1;
-        if(contador == 20){
+        if(contador == 20000){
+            SLEEP();
+            while(1);
+        }
+        if(RE1 == 1){
+            RC5 = !RC5;
             SLEEP();
             while(1);
         }
     }
-    if(INT0IF == 1){
-        INT0IF = 0;
-        SLEEP();
-        while(1);
+    if(RBIF==1){
+        if(PORTB!=0b11110000){
+            Tecla=0;
+            LATB=0b11111110;
+            if(RB4==0) Tecla=16;
+            else if(RB5==0) Tecla=12;
+            else if(RB6==0) Tecla=8;
+            else if(RB7==0) Tecla=4;
+            else{
+                LATB=0b11111101;
+                if(RB4==0) Tecla=15;
+                else if(RB5==0) Tecla=11;
+                else if(RB6==0) Tecla=7;
+                else if(RB7==0) Tecla=3;
+                else{
+                    LATB=0b11111011;
+                    if(RB4==0) Tecla=14;
+                    else if(RB5==0) Tecla=10;
+                    else if(RB6==0) Tecla=6;
+                    else if(RB7==0) Tecla=2;
+                    else{
+                        LATB=0b11110111;
+                        if(RB4==0) Tecla=13;
+                        else if(RB5==0) Tecla=9;
+                        else if(RB6==0) Tecla=5;
+                        else if(RB7==0) Tecla=1;
+                    }
+                }
+            }
+            LATB=0b11110000;              
+            ing = Tecla;
+            LeerTeclado();
+            EscribeLCD_c(Tecla);
+        }
+        RBIF=0;        
+        __delay_ms(300);
+         
     }
 }
