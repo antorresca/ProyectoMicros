@@ -5762,7 +5762,7 @@ LATD=a;
 }
 void InicializaLCD(void){
 
-LATE0=0;
+LATE1=0;
 if(interfaz==4)
 LATD=(LATD & 0b00001111) | 0x30;
 else
@@ -5803,7 +5803,7 @@ LATE2=0;
 }
 void BorraLCD(void){
 
-LATE0=0;
+LATE1=0;
 EnviaDato(0x01);
 HabilitaLCD();
 RetardoLCD(2);
@@ -5812,7 +5812,7 @@ RetardoLCD(2);
 # 129
 void ComandoLCD(unsigned char data){
 
-LATE0 = 0;
+LATE1 = 0;
 LATD = data;
 LATE2 = 1;
 _delay((unsigned long)((5)*(8000000/4000000.0)));
@@ -5833,7 +5833,7 @@ void EscribeLCD_c(unsigned char a){
 
 
 
-LATE0=1;
+LATE1=1;
 EnviaDato(a);
 HabilitaLCD();
 RetardoLCD(4);
@@ -5855,7 +5855,7 @@ EscribeLCD_c(a[i]);
 void DireccionaLCD(unsigned char a){
 
 
-LATE0=0;
+LATE1=0;
 EnviaDato(a);
 HabilitaLCD();
 RetardoLCD(4);
@@ -5914,6 +5914,7 @@ void Transmitir(unsigned char);
 unsigned char Recibir(void);
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2);
 void LeerHT11(void);
+void Velocidad(unsigned int val);
 
 void main(void){
 
@@ -5921,7 +5922,7 @@ TRISC = 0;
 OSCCON = 0b11110110;
 
 TRISD = 0;
-TRISE0 = 0;
+TRISE0 = 1;
 TRISE2 = 0;
 TRISE1 = 0;
 InicializaLCD();
@@ -5948,9 +5949,9 @@ TMR0ON=1;
 
 
 TRISC2 = 0;
-PR2 = 249;
+PR2 = 125;
 CCPR1L = 0;
-T2CON = 0b00000000;
+T2CON = 0b00000010;
 CCP1CON = 0b00001100;
 TMR2 = 0;
 TMR2ON = 1;
@@ -5982,12 +5983,36 @@ MensajeLCD_Word("                ");
 }
 DireccionaLCD(0x80);
 MensajeLCD_Word("                ");
+DireccionaLCD(0xC1);
+MensajeLCD_Word("                ");
 while(1){
 _delay((unsigned long)((500)*(8000000/4000.0)));
 LeerHT11();
 TransmitirDatos(0, 0);
+Velocidad(Temp);
 }
 }
+
+void Velocidad(unsigned int val){
+if (val < 22) {
+CCPR1L = 0;
+} else if (val >= 22 && val < 25) {
+CCPR1L = 19;
+} else if (val >= 25 && val < 28) {
+CCPR1L = 38;
+} else if (val >= 28 && val < 31) {
+CCPR1L = 57;
+} else if (val >= 31 && val < 34) {
+CCPR1L = 76;
+} else if (val >= 34 && val < 37) {
+CCPR1L = 95;
+} else if (val >= 37 && val < 40) {
+CCPR1L = 113;
+} else if (val >= 40) {
+CCPR1L = 126;
+}
+}
+
 
 void LeerHT11(void) {
 
@@ -6164,8 +6189,9 @@ if(contador == 20000){
 asm(" sleep");
 while(1);
 }
-if(RE1 == 1){
-RC5 = !RC5;
+if(RE0 == 1){
+CCP1CON = 0 ;
+_delay((unsigned long)((100)*(8000000/4000.0)));
 asm(" sleep");
 while(1);
 }

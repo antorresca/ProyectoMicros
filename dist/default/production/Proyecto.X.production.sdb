@@ -61,21 +61,23 @@
 "295
 [v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
 [v i2_RetardoLCD RetardoLCD `(v  1 e 1 0 ]
-"54 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"55 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _main main `(v  1 e 1 0 ]
-"128
-[v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
-"145
-[v _LeerByte LeerByte `(uc  1 e 1 0 ]
+"132
+[v _Velocidad Velocidad `(v  1 e 1 0 ]
 "153
+[v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
+"170
+[v _LeerByte LeerByte `(uc  1 e 1 0 ]
+"178
 [v _LeerBit LeerBit `(uc  1 e 1 0 ]
-"166
+"191
 [v _LeerTeclado LeerTeclado `(uc  1 e 1 0 ]
-"220
+"245
 [v _Transmitir Transmitir `(v  1 e 1 0 ]
-"230
+"255
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
-"294
+"319
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "2454 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
@@ -123,8 +125,8 @@
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
 "9746
 [v _GIE GIE `VEb  1 e 0 @32663 ]
-"10016
-[v _LATE0 LATE0 `VEb  1 e 0 @31848 ]
+"10019
+[v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "10022
 [v _LATE2 LATE2 `VEb  1 e 0 @31850 ]
 "10376
@@ -143,12 +145,10 @@
 [v _RBPU RBPU `VEb  1 e 0 @32655 ]
 "10400
 [v _RC0 RC0 `VEb  1 e 0 @31760 ]
-"10421
-[v _RC5 RC5 `VEb  1 e 0 @31765 ]
 "10448
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
-"10499
-[v _RE1 RE1 `VEb  1 e 0 @31777 ]
+"10496
+[v _RE0 RE0 `VEb  1 e 0 @31776 ]
 "10817
 [v _TMR0IE TMR0IE `VEb  1 e 0 @32661 ]
 "10820
@@ -186,24 +186,30 @@
 [v _Tecla Tecla `uc  1 e 1 0 ]
 "32
 [v _ing ing `uc  1 e 1 0 ]
-"54
+"55
 [v _main main `(v  1 e 1 0 ]
 {
-"126
+"130
 } 0
-"230
+"132
+[v _Velocidad Velocidad `(v  1 e 1 0 ]
+{
+[v Velocidad@val val `ui  1 p 2 7 ]
+"150
+} 0
+"255
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
 {
-"231
+"256
 [v TransmitirDatos@TempC TempC `ui  1 a 2 26 ]
-"232
+"257
 [v TransmitirDatos@Simb Simb `ui  1 a 2 24 ]
-"231
+"256
 [v TransmitirDatos@n n `ui  1 a 2 22 ]
-"230
+"255
 [v TransmitirDatos@Ent1 Ent1 `ui  1 p 2 16 ]
 [v TransmitirDatos@Ent2 Ent2 `ui  1 p 2 18 ]
-"292
+"317
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -280,13 +286,13 @@
 [v ___awdiv@divisor divisor `i  1 p 2 9 ]
 "41
 } 0
-"220 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"245 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _Transmitir Transmitir `(v  1 e 1 0 ]
 {
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
 [v Transmitir@BufferT BufferT `uc  1 a 1 7 ]
-"223
+"248
 } 0
 "247 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
@@ -337,25 +343,25 @@
 [v ComandoLCD@data data `uc  1 a 1 8 ]
 "138
 } 0
-"128 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"153 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
 {
-"143
+"168
 } 0
-"145
+"170
 [v _LeerByte LeerByte `(uc  1 e 1 0 ]
 {
-"146
+"171
 [v LeerByte@i i `uc  1 a 1 10 ]
 [v LeerByte@res res `uc  1 a 1 9 ]
-"151
+"176
 } 0
-"153
+"178
 [v _LeerBit LeerBit `(uc  1 e 1 0 ]
 {
-"154
+"179
 [v LeerBit@res res `uc  1 a 1 7 ]
-"164
+"189
 } 0
 "74 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _InicializaLCD InicializaLCD `(v  1 e 1 0 ]
@@ -388,10 +394,10 @@
 {
 "114
 } 0
-"294 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"319 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"347
+"373
 } 0
 "148 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v i2_EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
@@ -423,8 +429,8 @@
 {
 "114
 } 0
-"166 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"191 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _LeerTeclado LeerTeclado `(uc  1 e 1 0 ]
 {
-"217
+"242
 } 0

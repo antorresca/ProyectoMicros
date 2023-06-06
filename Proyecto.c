@@ -50,6 +50,7 @@ void Transmitir(unsigned char);
 unsigned char Recibir(void);
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2);
 void LeerHT11(void);
+void Velocidad(unsigned int val);
 
 void main(void){
     //Configuracion de pines
@@ -57,7 +58,7 @@ void main(void){
     OSCCON = 0b11110110; //Frecuencia a 8MHz
     //Configuracion del LCD
     TRISD = 0;
-    TRISE0 = 0;
+    TRISE0 = 1;
     TRISE2 = 0;
     TRISE1 = 0;
     InicializaLCD();
@@ -84,9 +85,9 @@ void main(void){
     //Fin de configuracion del Timer 0
     //Configuracion para PWM
     TRISC2 = 0; //Canal de salida para PWM
-    PR2 = 249; 
-    CCPR1L = 0; //Para canal escogido ***PUEDE GENERAR PROBLEMAS***
-    T2CON = 0b00000000;
+    PR2 = 125; 
+    CCPR1L = 0; //Para canal escogido ***PUEDE GENERAR PROBLEMAS*** (PR2+1)*D
+    T2CON = 0b00000010;
     CCP1CON = 0b00001100;
     TMR2 = 0;
     TMR2ON = 1;
@@ -118,12 +119,36 @@ void main(void){
     }
     DireccionaLCD(0x80);
     MensajeLCD_Word("                ");
+    DireccionaLCD(0xC1);
+    MensajeLCD_Word("                ");
     while(1){        
         __delay_ms(500);
         LeerHT11();        
         TransmitirDatos(0, 0);
+        Velocidad(Temp);
     }
 }
+
+void Velocidad(unsigned int val){
+    if (val < 22) {
+        CCPR1L = 0;
+    } else if (val >= 22 && val < 25) {
+        CCPR1L = 19;
+    } else if (val >= 25 && val < 28) {
+        CCPR1L = 38;
+    } else if (val >= 28 && val < 31) {
+        CCPR1L = 57;
+    } else if (val >= 31 && val < 34) {
+        CCPR1L = 76;
+    } else if (val >= 34 && val < 37) {
+        CCPR1L = 95;
+    } else if (val >= 37 && val < 40) {
+        CCPR1L = 113;
+    } else if (val >= 40) {
+        CCPR1L = 126;
+    }
+}
+
 
 void LeerHT11(void) {
     //Por defecto el pin de comunicaci?n est? en alto, para iniciar la comunicaci?n se debe poner la l?nea de datos en bajo durante 18ms
@@ -300,8 +325,9 @@ void __interrupt() ISR(void){
             SLEEP();
             while(1);
         }
-        if(RE1 == 1){
-            RC5 = !RC5;
+        if(RE0 == 1){
+            CCP1CON = 0 ;
+            __delay_ms(100);
             SLEEP();
             while(1);
         }
