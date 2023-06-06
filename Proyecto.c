@@ -101,6 +101,7 @@ void main(void){
     SPBRG = 12; 
     //Fin de configuracion de comunicacion  
     //Sensor
+    TRISC0= 1;
     UTRDIS = 1;
     USBEN = 0;
     //Protocolo de inicio
@@ -117,15 +118,16 @@ void main(void){
     MensajeLCD_Word("                "); //Mandar mensaje vacio para limpiar
     DireccionaLCD(0x80);
     MensajeLCD_Word("Password:");
-    while(1){      
-        while(ing!=Cont){
+    while(ing!=Cont){
         DireccionaLCD(0xC1);
         MensajeLCD_Word("                ");
-        }
-        DireccionaLCD(0x80);
-        MensajeLCD_Word("                ");
-        DireccionaLCD(0xC1);
-        MensajeLCD_Word("                ");
+    }
+    DireccionaLCD(0x80);
+    MensajeLCD_Word("                ");
+    DireccionaLCD(0xC1);
+    MensajeLCD_Word("                ");
+    __delay_ms(500);
+    while(1){   
         __delay_ms(500);
         LeerHT11();        
         TransmitirDatos(0, 0);
@@ -325,10 +327,6 @@ void __interrupt() ISR(void){
         TMR0IF = 0;
         TMR0 = 64911;
         contador += 1;
-        if(contador == 20000){
-            SLEEP();
-            while(1);
-        }
         if(RE0 == 1){
             CCP1CON = 0 ;
             __delay_ms(100);
