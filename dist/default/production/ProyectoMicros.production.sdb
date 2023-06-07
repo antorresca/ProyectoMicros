@@ -61,23 +61,27 @@
 "295
 [v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
 [v i2_RetardoLCD RetardoLCD `(v  1 e 1 0 ]
-"56 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
+"57 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
 [v _main main `(v  1 e 1 0 ]
-"138
+"152
+[v _Movimiento Movimiento `(v  1 e 1 0 ]
+"164
 [v _Velocidad Velocidad `(v  1 e 1 0 ]
-"159
+"185
 [v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
-"176
+"202
 [v _LeerByte LeerByte `(uc  1 e 1 0 ]
-"184
+"210
 [v _LeerBit LeerBit `(uc  1 e 1 0 ]
-"197
+"223
 [v _LeerTeclado LeerTeclado `(uc  1 e 1 0 ]
-"251
+"277
 [v _Transmitir Transmitir `(v  1 e 1 0 ]
-"261
+"282
+[v _ConvertirUnidades ConvertirUnidades `(ui  1 e 2 0 ]
+"294
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
-"325
+"358
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "2453 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
@@ -85,6 +89,8 @@
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "3263
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
+"3427
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "3625
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "3847
@@ -101,6 +107,10 @@
 [v _RCREG RCREG `VEuc  1 e 1 @4014 ]
 "5426
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"6242
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
+"6306
+[v _CCPR2 CCPR2 `VEus  1 e 2 @4027 ]
 "6327
 [v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
 "6496
@@ -111,12 +121,18 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "6666
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+"6785
+[v _ADRES ADRES `VEus  1 e 2 @4035 ]
 "7200
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
 "7298
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "7408
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+"7415
+[v _T1CON T1CON `VEuc  1 e 1 @4045 ]
+"7518
+[v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
 "7986
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "8069
@@ -125,10 +141,14 @@
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
 "9745
 [v _GIE GIE `VEb  1 e 0 @32663 ]
+"9757
+[v _GO GO `VEb  1 e 0 @32273 ]
 "10018
 [v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "10021
 [v _LATE2 LATE2 `VEb  1 e 0 @31850 ]
+"10273
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
 "10375
 [v _RB4 RB4 `VEb  1 e 0 @31756 ]
 "10378
@@ -145,8 +165,6 @@
 [v _RBPU RBPU `VEb  1 e 0 @32655 ]
 "10399
 [v _RC0 RC0 `VEb  1 e 0 @31760 ]
-"10447
-[v _RCIF RCIF `VEb  1 e 0 @31989 ]
 "10495
 [v _RE0 RE0 `VEb  1 e 0 @31776 ]
 "10816
@@ -155,10 +173,18 @@
 [v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
 "10825
 [v _TMR0ON TMR0ON `VEb  1 e 0 @32431 ]
+"10831
+[v _TMR1IE TMR1IE `VEb  1 e 0 @31976 ]
+"10834
+[v _TMR1IF TMR1IF `VEb  1 e 0 @31984 ]
+"10840
+[v _TMR1ON TMR1ON `VEb  1 e 0 @32360 ]
 "10852
 [v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
 "10930
 [v _TRISC0 TRISC0 `VEb  1 e 0 @31904 ]
+"10933
+[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
 "10936
 [v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
 "10939
@@ -180,40 +206,40 @@
 "37 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\LibLCDXC8.h
 [v _interfaz interfaz `uc  1 e 1 0 ]
 "17 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
-[v _contador contador `i  1 e 2 0 ]
-"19
 [v _Temp Temp `uc  1 e 1 0 ]
 [v _Humedad Humedad `uc  1 e 1 0 ]
-"20
+"18
 [v _cara cara `[8]uc  1 e 8 0 ]
-"30
+"28
 [v _Tecla Tecla `uc  1 e 1 0 ]
-"32
+"30
 [v _ing ing `uc  1 e 1 0 ]
-"56
+"32
+[v _a a `ui  1 e 2 0 ]
+"57
 [v _main main `(v  1 e 1 0 ]
 {
-"136
+"150
 } 0
-"138
+"164
 [v _Velocidad Velocidad `(v  1 e 1 0 ]
 {
 [v Velocidad@val val `ui  1 p 2 7 ]
-"156
+"182
 } 0
-"261
+"294
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
 {
-"262
+"295
 [v TransmitirDatos@TempC TempC `ui  1 a 2 26 ]
-"263
+"296
 [v TransmitirDatos@Simb Simb `ui  1 a 2 24 ]
-"262
+"295
 [v TransmitirDatos@n n `ui  1 a 2 22 ]
-"261
+"294
 [v TransmitirDatos@Ent1 Ent1 `ui  1 p 2 16 ]
 [v TransmitirDatos@Ent2 Ent2 `ui  1 p 2 18 ]
-"323
+"356
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -290,13 +316,13 @@
 [v ___awdiv@divisor divisor `i  1 p 2 9 ]
 "41
 } 0
-"251 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
+"277 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
 [v _Transmitir Transmitir `(v  1 e 1 0 ]
 {
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
 [v Transmitir@BufferT BufferT `uc  1 a 1 7 ]
-"254
+"280
 } 0
 "247 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\LibLCDXC8.h
 [v _MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
@@ -347,25 +373,30 @@
 [v ComandoLCD@data data `uc  1 a 1 8 ]
 "138
 } 0
-"159 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
+"152 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
+[v _Movimiento Movimiento `(v  1 e 1 0 ]
+{
+"162
+} 0
+"185
 [v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
 {
-"174
+"200
 } 0
-"176
+"202
 [v _LeerByte LeerByte `(uc  1 e 1 0 ]
 {
-"177
+"203
 [v LeerByte@i i `uc  1 a 1 10 ]
 [v LeerByte@res res `uc  1 a 1 9 ]
-"182
+"208
 } 0
-"184
+"210
 [v _LeerBit LeerBit `(uc  1 e 1 0 ]
 {
-"185
+"211
 [v LeerBit@res res `uc  1 a 1 7 ]
-"195
+"221
 } 0
 "74 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\LibLCDXC8.h
 [v _InicializaLCD InicializaLCD `(v  1 e 1 0 ]
@@ -398,10 +429,18 @@
 {
 "114
 } 0
-"325 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
+"282 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
+[v _ConvertirUnidades ConvertirUnidades `(ui  1 e 2 0 ]
+{
+[v ConvertirUnidades@canal canal `uc  1 a 1 wreg ]
+[v ConvertirUnidades@canal canal `uc  1 a 1 wreg ]
+[v ConvertirUnidades@canal canal `uc  1 a 1 7 ]
+"287
+} 0
+"358
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"375
+"413
 } 0
 "148 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\LibLCDXC8.h
 [v i2_EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
@@ -433,8 +472,8 @@
 {
 "114
 } 0
-"197 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
+"223 C:\Users\Osqui Alvareto\Documents\GitHub\ProyectoMicros\Proyecto.c
 [v _LeerTeclado LeerTeclado `(uc  1 e 1 0 ]
 {
-"248
+"274
 } 0
