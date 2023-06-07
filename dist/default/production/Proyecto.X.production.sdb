@@ -5,6 +5,8 @@
 [d frameptr 4065 ]
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftadd.c
@@ -15,10 +17,6 @@
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 "19 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
-[v ___lbmod __lbmod `(uc  1 e 1 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
@@ -63,6 +61,8 @@
 [v i2_RetardoLCD RetardoLCD `(v  1 e 1 0 ]
 "59 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _main main `(v  1 e 1 0 ]
+"177
+[v _Movimiento Movimiento `(v  1 e 1 0 ]
 "189
 [v _Velocidad Velocidad `(v  1 e 1 0 ]
 "217
@@ -77,9 +77,11 @@
 [v _LeerTeclado LeerTeclado `(uc  1 e 1 0 ]
 "326
 [v _Transmitir Transmitir `(v  1 e 1 0 ]
+"331
+[v _ConvertirUnidades ConvertirUnidades `(ui  1 e 2 0 ]
 "343
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
-"407
+"410
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "2454 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
@@ -139,12 +141,16 @@
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
 "9746
 [v _GIE GIE `VEb  1 e 0 @32663 ]
+"9758
+[v _GO GO `VEb  1 e 0 @32273 ]
 "10019
 [v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "10022
 [v _LATE2 LATE2 `VEb  1 e 0 @31850 ]
 "10274
 [v _PEIE PEIE `VEb  1 e 0 @32662 ]
+"10358
+[v _RA5 RA5 `VEb  1 e 0 @31749 ]
 "10376
 [v _RB4 RB4 `VEb  1 e 0 @31756 ]
 "10379
@@ -159,8 +165,6 @@
 [v _RBIF RBIF `VEb  1 e 0 @32656 ]
 "10397
 [v _RBPU RBPU `VEb  1 e 0 @32655 ]
-"10400
-[v _RC0 RC0 `VEb  1 e 0 @31760 ]
 "10415
 [v _RC2 RC2 `VEb  1 e 0 @31762 ]
 "10496
@@ -179,8 +183,8 @@
 [v _TMR1ON TMR1ON `VEb  1 e 0 @32360 ]
 "10853
 [v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
-"10931
-[v _TRISC0 TRISC0 `VEb  1 e 0 @31904 ]
+"10901
+[v _TRISA5 TRISA5 `VEb  1 e 0 @31893 ]
 "10934
 [v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
 "10937
@@ -205,7 +209,6 @@
 [v _interfaz interfaz `uc  1 e 1 0 ]
 "17 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _Temp Temp `uc  1 e 1 0 ]
-[v _Humedad Humedad `uc  1 e 1 0 ]
 "18
 [v _cara cara `[8]uc  1 e 8 0 ]
 "28
@@ -222,7 +225,7 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "138
-[v main@i i `i  1 a 2 30 ]
+[v main@i i `i  1 a 2 45 ]
 "175
 } 0
 "189
@@ -235,15 +238,15 @@
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
 {
 "344
-[v TransmitirDatos@TempC TempC `ui  1 a 2 26 ]
+[v TransmitirDatos@TempC TempC `ui  1 a 2 41 ]
 "345
-[v TransmitirDatos@Simb Simb `ui  1 a 2 24 ]
+[v TransmitirDatos@Simb Simb `ui  1 a 2 39 ]
 "344
-[v TransmitirDatos@n n `ui  1 a 2 22 ]
+[v TransmitirDatos@n n `ui  1 a 2 27 ]
 "343
-[v TransmitirDatos@Ent1 Ent1 `ui  1 p 2 16 ]
-[v TransmitirDatos@Ent2 Ent2 `ui  1 p 2 18 ]
-"405
+[v TransmitirDatos@Ent1 Ent1 `ui  1 p 2 21 ]
+[v TransmitirDatos@Ent2 Ent2 `ui  1 p 2 23 ]
+"408
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -277,35 +280,16 @@
 [v ___lwdiv@divisor divisor `ui  1 p 2 9 ]
 "30
 } 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbmod.c
-[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 {
-[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
-"6
-[v ___lbmod@rem rem `uc  1 a 1 10 ]
+"10
+[v ___awmod@sign sign `uc  1 a 1 20 ]
+[v ___awmod@counter counter `uc  1 a 1 19 ]
 "7
-[v ___lbmod@counter counter `uc  1 a 1 9 ]
-"4
-[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
-[v ___lbmod@divisor divisor `uc  1 p 1 7 ]
-"9
-[v ___lbmod@dividend dividend `uc  1 a 1 8 ]
-"18
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
-{
-[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
-"6
-[v ___lbdiv@quotient quotient `uc  1 a 1 10 ]
-"7
-[v ___lbdiv@counter counter `uc  1 a 1 9 ]
-"4
-[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
-[v ___lbdiv@divisor divisor `uc  1 p 1 7 ]
-"9
-[v ___lbdiv@dividend dividend `uc  1 a 1 8 ]
-"26
+[v ___awmod@dividend dividend `i  1 p 2 15 ]
+[v ___awmod@divisor divisor `i  1 p 2 17 ]
+"34
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -348,7 +332,7 @@
 [v Password@access access `ui  1 a 2 20 ]
 "217
 [v Password@pass pass `*.30uc  1 p 1 12 ]
-[v Password@F3204 F3204 `[4]uc  1 s 4 F3204 ]
+[v Password@F3203 F3203 `[4]uc  1 s 4 F3203 ]
 "230
 } 0
 "141 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
@@ -382,7 +366,12 @@
 [v ComandoLCD@data data `uc  1 a 1 8 ]
 "139
 } 0
-"233 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"177 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+[v _Movimiento Movimiento `(v  1 e 1 0 ]
+{
+"187
+} 0
+"233
 [v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
 {
 "248
@@ -442,10 +431,18 @@
 {
 "114
 } 0
-"407 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"331 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+[v _ConvertirUnidades ConvertirUnidades `(ui  1 e 2 0 ]
+{
+[v ConvertirUnidades@canal canal `uc  1 a 1 wreg ]
+[v ConvertirUnidades@canal canal `uc  1 a 1 wreg ]
+[v ConvertirUnidades@canal canal `uc  1 a 1 7 ]
+"336
+} 0
+"410
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"464
+"467
 } 0
 "149 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v i2_EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]

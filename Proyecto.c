@@ -14,7 +14,7 @@
 */
 
 //Variables
-unsigned char Temp, Humedad;
+unsigned char Temp;
 unsigned char cara[]={
     0b00000000,
     0b00001010,
@@ -39,9 +39,9 @@ unsigned int teclaRecibidaIf = 0;//bandera para deshabilitar el teclado
 #pragma config LVP=OFF
 
 #define _XTAL_FREQ 8000000 //Frecuencia de reloj
-#define DATA_DIR TRISC0
-#define DATA_IN RC0
-#define DATA_OUT LATC0
+#define DATA_DIR TRISA5
+#define DATA_IN RA5
+#define DATA_OUT LATA5
 
 //Prototipos
 unsigned char LeerTeclado(void);
@@ -69,7 +69,7 @@ void main(void){
     BorraLCD();
     //Fin de configuracion del LCD
     //Configuracion del ADC
-    TRISA = 0b00000010;
+    TRISA = 0b00100010;
     ADCON0 = 0b00000001;
     ADCON1 = 0b00001100;
     ADCON2 = 0b10001000;
@@ -104,7 +104,7 @@ void main(void){
     SPBRG = 12; 
     //Fin de configuracion de comunicacion  
     //Sensor
-    TRISC0= 1;
+    TRISA5= 1;
     UTRDIS = 1;
     USBEN = 0;
     //Servomotor
@@ -169,8 +169,8 @@ void main(void){
         LeerHT11();        
         TransmitirDatos(0, 0);
         Velocidad(Temp);
-        //ConvertirUnidades(0);
-        //Movimiento();
+        ConvertirUnidades(0);
+        Movimiento();
     }
 }
 
@@ -240,7 +240,7 @@ void LeerHT11(void) {
     __delay_us(120); //Pulso bajo, respuesta del sensor 80us, posteriormente pulso en alto de una duraci?n similar.
     while (DATA_IN == 1); //Tiempo en alto que dura hasta que el sensor toma control del canal de comunicaci?n
     //Recepci?n de datos
-    Humedad = LeerByte();
+    LeerByte();
     LeerByte();
     Temp = LeerByte();
     LeerByte();
@@ -341,7 +341,7 @@ unsigned char Recibir(void){
 }
 
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
-    unsigned int n = Ent1 * 10 + Ent2, TempC = Temp, HumedadC = Humedad;
+    unsigned int n = Ent1 * 10 + Ent2, TempC = Temp;
     unsigned int Simb = 67;
     BorraLCD();
     switch (n) {
@@ -381,13 +381,15 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
     Transmitir(Simb);
     Transmitir(' ');
     Transmitir('\n');
-    Transmitir('H');
+    Transmitir('D');
     Transmitir('u');
-    Transmitir('m');
+    Transmitir('t');
+    Transmitir('y');
     Transmitir(':');
     Transmitir(' ');
-    Transmitir(Humedad / 10 + 48);
-    Transmitir(Humedad % 10 + 48);
+    if(CCP1CON==0&& RC2==1) Transmitir(1 + 48);
+    Transmitir((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
+    Transmitir((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
     Transmitir(' ');
     Transmitir('%');
     Transmitir('\n');
@@ -397,9 +399,10 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
     EscribeLCD_c(TempC % 10 + 48);
     EscribeLCD_c(Simb);
     DireccionaLCD(192);
-    MensajeLCD_Word("Hum:");
-    EscribeLCD_c(Humedad / 10 + 48);
-    EscribeLCD_c(Humedad % 10 + 48);
+    MensajeLCD_Word("Duty:");
+    if(CCP1CON==0 && RC2==1) EscribeLCD_c(1 + 48);
+    EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
+    EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
     EscribeLCD_c('%');
 
 }

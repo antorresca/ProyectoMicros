@@ -5884,7 +5884,7 @@ break;
 }
 
 # 17 "Proyecto.c"
-unsigned char Temp, Humedad;
+unsigned char Temp;
 unsigned char cara[]={
 0b00000000,
 0b00001010,
@@ -5934,7 +5934,7 @@ InicializaLCD();
 BorraLCD();
 
 
-TRISA = 0b00000010;
+TRISA = 0b00100010;
 ADCON0 = 0b00000001;
 ADCON1 = 0b00001100;
 ADCON2 = 0b10001000;
@@ -5969,7 +5969,7 @@ RCSTA = 0b10010000;
 SPBRG = 12;
 
 
-TRISC0= 1;
+TRISA5= 1;
 UTRDIS = 1;
 USBEN = 0;
 
@@ -6032,8 +6032,8 @@ _delay((unsigned long)((500)*(8000000/4000.0)));
 LeerHT11();
 TransmitirDatos(0, 0);
 Velocidad(Temp);
-
-
+ConvertirUnidades(0);
+Movimiento();
 }
 }
 
@@ -6095,15 +6095,15 @@ return (access==4)? 1:0;
 
 void LeerHT11(void) {
 
-TRISC0 = 0;
+TRISA5 = 0;
 _delay((unsigned long)((18)*(8000000/4000.0)));
-TRISC0 = 1;
+TRISA5 = 1;
 
-while (RC0 == 1);
+while (RA5 == 1);
 _delay((unsigned long)((120)*(8000000/4000000.0)));
-while (RC0 == 1);
+while (RA5 == 1);
 
-Humedad = LeerByte();
+LeerByte();
 LeerByte();
 Temp = LeerByte();
 LeerByte();
@@ -6120,13 +6120,13 @@ return res;
 
 unsigned char LeerBit(void) {
 unsigned char res = 0;
-while (RC0 == 0);
+while (RA5 == 0);
 _delay((unsigned long)((13)*(8000000/4000000.0)));
-if (RC0 == 1) res = 0;
+if (RA5 == 1) res = 0;
 _delay((unsigned long)((22)*(8000000/4000000.0)));
-if (RC0 == 1) {
+if (RA5 == 1) {
 res = 1;
-while (RC0 == 1);
+while (RA5 == 1);
 }
 return res;
 }
@@ -6204,7 +6204,7 @@ return RCREG;
 }
 
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
-unsigned int n = Ent1 * 10 + Ent2, TempC = Temp, HumedadC = Humedad;
+unsigned int n = Ent1 * 10 + Ent2, TempC = Temp;
 unsigned int Simb = 67;
 BorraLCD();
 switch (n) {
@@ -6244,13 +6244,15 @@ Transmitir(167);
 Transmitir(Simb);
 Transmitir(' ');
 Transmitir('\n');
-Transmitir('H');
+Transmitir('D');
 Transmitir('u');
-Transmitir('m');
+Transmitir('t');
+Transmitir('y');
 Transmitir(':');
 Transmitir(' ');
-Transmitir(Humedad / 10 + 48);
-Transmitir(Humedad % 10 + 48);
+if(CCP1CON==0&& RC2==1) Transmitir(1 + 48);
+Transmitir((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
+Transmitir((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
 Transmitir(' ');
 Transmitir('%');
 Transmitir('\n');
@@ -6260,9 +6262,10 @@ EscribeLCD_c(TempC / 10 + 48);
 EscribeLCD_c(TempC % 10 + 48);
 EscribeLCD_c(Simb);
 DireccionaLCD(192);
-MensajeLCD_Word("Hum:");
-EscribeLCD_c(Humedad / 10 + 48);
-EscribeLCD_c(Humedad % 10 + 48);
+MensajeLCD_Word("Duty:");
+if(CCP1CON==0 && RC2==1) EscribeLCD_c(1 + 48);
+EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
+EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
 EscribeLCD_c('%');
 
 }
