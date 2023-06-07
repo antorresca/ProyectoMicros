@@ -14,8 +14,6 @@
 */
 
 //Variables
-int contador = 0;
-int duty = 0;
 unsigned char Temp, Humedad;
 unsigned char cara[]={
     0b00000000,
@@ -28,10 +26,12 @@ unsigned char cara[]={
     0b00000000
     };
 unsigned char Tecla;
-unsigned char Cont = 6;
-unsigned char ing = 0;
-int c = 1000000;
-
+unsigned char Cont = 6; //Numero de posicion
+unsigned char ing[4];
+int c = 0;
+unsigned int a = 125;
+unsigned int teclaIf = 0;//bandera para deshabilitar el teclado 
+unsigned int teclaRecibidaIf = 0;//bandera para deshabilitar el teclado 
 //Configuraciones
 #pragma config FOSC=INTOSC_EC
 #pragma config PBADEN = OFF
@@ -52,6 +52,9 @@ unsigned char Recibir(void);
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2);
 void LeerHT11(void);
 void Velocidad(unsigned int val);
+void Movimiento(void);
+unsigned int ConvertirUnidades(unsigned char canal);
+int Password(char* pass);
 
 void main(void){
     //Configuracion de pines
@@ -66,6 +69,7 @@ void main(void){
     BorraLCD();
     //Fin de configuracion del LCD
     //Configuracion del ADC
+    TRISA = 0b00000010;
     ADCON0 = 0b00000001;
     ADCON1 = 0b00001100;
     ADCON2 = 0b10001000;
@@ -79,9 +83,8 @@ void main(void){
     //Configuracion del Timer 0
     T0CON=0b00000011;//No habilita timer0, 16 bits de resolucion, reloj interno
     TMR0IF=0;// apaga bandera
-    TMR0=64911; // valor pre carga
+    TMR0=64286; // valor pre carga
     TMR0IE=1; //Habilita la interrupcion 
-    GIE=1; //habilita interrupciones globales
     TMR0ON=1;
     //Fin de configuracion del Timer 0
     //Configuracion para PWM
@@ -104,6 +107,17 @@ void main(void){
     TRISC0= 1;
     UTRDIS = 1;
     USBEN = 0;
+    //Servomotor
+    TRISC1=0;      
+    TMR1=60536;        //Precarga del Timer1 que asegura los 20 ms mas el tiempo del pulso
+    T1CON=0b10110000;  //PS de 8
+    CCPR2=60536+125;    //Servomotor a 0°
+    CCP2CON=0b00001001; //Establece modo de comparación para generación de pulso
+    TMR1IF=0;
+    TMR1IE=1;
+    PEIE=1;
+    TMR1ON=1;    
+    GIE=1; //habilita interrupciones globales
     //Protocolo de inicio
     __delay_ms(1000); //Retraso para evitar errores
     BorraLCD(); 
@@ -118,41 +132,101 @@ void main(void){
     MensajeLCD_Word("                "); //Mandar mensaje vacio para limpiar
     DireccionaLCD(0x80);
     MensajeLCD_Word("Password:");
-    while(ing!=Cont){
-        DireccionaLCD(0xC1);
-        MensajeLCD_Word("                ");
+    
+    while (!Password(ing)) {
+        teclaIf = 1;
+        for (int i = 0; i <4; i++) {
+            while(teclaRecibidaIf==0);
+            teclaRecibidaIf=0;
+            ing[i] = Tecla;
+            
+        }
+        teclaIf = 0;
+        if (Password(ing)) {
+            MensajeLCD_Word("                      ");
+            DireccionaLCD(0xC1);
+            EscribeLCD_c(0);
+            __delay_ms(1000);
+        } else {
+            
+            DireccionaLCD(0xC1);
+            MensajeLCD_Word("Incorrecto");
+            __delay_ms(1000);
+            DireccionaLCD(0xC1);
+            MensajeLCD_Word("                      ");
+        }
     }
-    DireccionaLCD(0x80);
+    BorraLCD();
+    /*DireccionaLCD(0x80);
     MensajeLCD_Word("                ");
     DireccionaLCD(0xC1);
-    MensajeLCD_Word("                ");
+    MensajeLCD_Word("                ");*/
     __delay_ms(500);
+    
+    
     while(1){   
         __delay_ms(500);
         LeerHT11();        
         TransmitirDatos(0, 0);
         Velocidad(Temp);
+        //ConvertirUnidades(0);
+        //Movimiento();
+    }
+}
+
+void Movimiento(void){
+    if(ADRES>0 & ADRES<=255){
+        a = 125;
+    }else if(ADRES>255 & ADRES<=511){
+        a = 292;
+    }else if(ADRES>511 & ADRES<=1918){
+        a = 458;
+    }else if(ADRES>1918 & ADRES<=5115){
+        a = 625;
     }
 }
 
 void Velocidad(unsigned int val){
-    if (val < 22) {
-        CCPR1L = 0;
-    } else if (val >= 22 && val < 25) {
+    if (val <= 22) {
+        CCP1CON = 0;
+        RC2 = 0;
+    } else if (val > 22 && val < 25) {
+        CCP1CON = 0b00001100;
         CCPR1L = 19;
     } else if (val >= 25 && val < 28) {
+        CCP1CON = 0b00001100;
         CCPR1L = 38;
     } else if (val >= 28 && val < 31) {
+        CCP1CON = 0b00001100;
         CCPR1L = 57;
     } else if (val >= 31 && val < 34) {
+        CCP1CON = 0b00001100;
         CCPR1L = 76;
     } else if (val >= 34 && val < 37) {
+        CCP1CON = 0b00001100;
         CCPR1L = 95;
     } else if (val >= 37 && val < 40) {
+        CCP1CON = 0b00001100;
         CCPR1L = 113;
     } else if (val >= 40) {
-        CCPR1L = 126;
+        CCP1CON = 0;
+        RC2 = 1;
     }
+}
+
+int Password(char* pass){
+    unsigned char secret[] = {'0','1','2','3'};
+    unsigned int access = 0; 
+    DireccionaLCD(0xC1);
+    for(int i=0; i<4; i++){
+        
+        EscribeLCD_c('*');
+        if(pass[i] == secret[i]){
+            access++;
+        }
+    }
+    DireccionaLCD(0xC1);
+    return (access==4)? 1:0; 
 }
 
 
@@ -195,6 +269,7 @@ unsigned char LeerBit(void) {
 }
 
 unsigned char LeerTeclado(void){
+    teclaRecibidaIf=1;
     switch (Tecla){
         case 1:
             Tecla='1';
@@ -251,6 +326,13 @@ unsigned char LeerTeclado(void){
 void Transmitir(unsigned char BufferT) {
     while (TRMT == 0);
     TXREG = BufferT;
+}
+
+unsigned int ConvertirUnidades(unsigned char canal) {
+    ADCON0 = 0b00000001  | (canal << 2);
+    GO = 1; //bsf ADCON0,1
+    while (GO == 1);
+    return ADRES;
 }
 
 unsigned char Recibir(void){
@@ -325,17 +407,18 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
 void __interrupt() ISR(void){
     if(TMR0IF == 1){
         TMR0IF = 0;
-        TMR0 = 64911;
-        contador += 1;
+        TMR0 = 64286;
         if(RE0 == 1){
-            CCP1CON = 0 ;
-            __delay_ms(100);
+            CCP1CON = 0;
+            RC2 = 0;
+            __delay_ms(200);
             SLEEP();
             while(1);
         }
     }
     if(RBIF==1){
-        if(PORTB!=0b11110000){
+        
+        if(PORTB!=0b11110000 && teclaIf == 1){
             Tecla=0;
             LATB=0b11111110;
             if(RB4==0) Tecla=16;
@@ -364,12 +447,18 @@ void __interrupt() ISR(void){
                 }
             }
             LATB=0b11110000;              
-            ing = Tecla;
+            
             LeerTeclado();
             EscribeLCD_c(Tecla);
         }
         RBIF=0;        
-        __delay_ms(300);
+        __delay_ms(50); //
          
+    }
+    if(TMR1IF==1){
+        TMR1IF=0;
+        TMR1=60536;        //Precarga del Timer1 que asegura los 20 ms mas el tiempo del pulso
+        CCPR2=60536+a;    //Varia la duración del púlso y a su vez del angulo del servo
+        CCP2CON=0b00001001;
     }
 }

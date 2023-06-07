@@ -47,37 +47,39 @@
 [v i2_HabilitaLCD HabilitaLCD `(v  1 e 1 0 ]
 "115
 [v _BorraLCD BorraLCD `(v  1 e 1 0 ]
-"129
+"130
 [v _ComandoLCD ComandoLCD `(v  1 e 1 0 ]
-"140
+"141
 [v _NuevoCaracter NuevoCaracter `(v  1 e 1 0 ]
-"148
+"149
 [v _EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
 [v i2_EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
-"247
+"248
 [v _MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
-"259
+"260
 [v _DireccionaLCD DireccionaLCD `(v  1 e 1 0 ]
-"295
+"296
 [v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
 [v i2_RetardoLCD RetardoLCD `(v  1 e 1 0 ]
-"56 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"59 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _main main `(v  1 e 1 0 ]
-"136
+"189
 [v _Velocidad Velocidad `(v  1 e 1 0 ]
-"157
+"217
+[v _Password Password `(i  1 e 2 0 ]
+"233
 [v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
-"174
+"250
 [v _LeerByte LeerByte `(uc  1 e 1 0 ]
-"182
+"258
 [v _LeerBit LeerBit `(uc  1 e 1 0 ]
-"195
+"271
 [v _LeerTeclado LeerTeclado `(uc  1 e 1 0 ]
-"249
+"326
 [v _Transmitir Transmitir `(v  1 e 1 0 ]
-"259
+"343
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
-"323
+"407
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "2454 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
@@ -85,6 +87,8 @@
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "3264
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
+"3428
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "3626
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "3848
@@ -101,6 +105,10 @@
 [v _RCREG RCREG `VEuc  1 e 1 @4014 ]
 "5427
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"6243
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
+"6307
+[v _CCPR2 CCPR2 `VEus  1 e 2 @4027 ]
 "6328
 [v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
 "6497
@@ -111,12 +119,18 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "6667
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+"6786
+[v _ADRES ADRES `VEus  1 e 2 @4035 ]
 "7201
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
 "7299
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "7409
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+"7416
+[v _T1CON T1CON `VEuc  1 e 1 @4045 ]
+"7519
+[v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
 "7987
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "8070
@@ -129,6 +143,8 @@
 [v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "10022
 [v _LATE2 LATE2 `VEb  1 e 0 @31850 ]
+"10274
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
 "10376
 [v _RB4 RB4 `VEb  1 e 0 @31756 ]
 "10379
@@ -145,8 +161,8 @@
 [v _RBPU RBPU `VEb  1 e 0 @32655 ]
 "10400
 [v _RC0 RC0 `VEb  1 e 0 @31760 ]
-"10448
-[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"10415
+[v _RC2 RC2 `VEb  1 e 0 @31762 ]
 "10496
 [v _RE0 RE0 `VEb  1 e 0 @31776 ]
 "10817
@@ -155,10 +171,18 @@
 [v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
 "10826
 [v _TMR0ON TMR0ON `VEb  1 e 0 @32431 ]
+"10832
+[v _TMR1IE TMR1IE `VEb  1 e 0 @31976 ]
+"10835
+[v _TMR1IF TMR1IF `VEb  1 e 0 @31984 ]
+"10841
+[v _TMR1ON TMR1ON `VEb  1 e 0 @32360 ]
 "10853
 [v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
 "10931
 [v _TRISC0 TRISC0 `VEb  1 e 0 @31904 ]
+"10934
+[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
 "10937
 [v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
 "10940
@@ -180,40 +204,46 @@
 "37 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _interfaz interfaz `uc  1 e 1 0 ]
 "17 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
-[v _contador contador `i  1 e 2 0 ]
-"19
 [v _Temp Temp `uc  1 e 1 0 ]
 [v _Humedad Humedad `uc  1 e 1 0 ]
-"20
+"18
 [v _cara cara `[8]uc  1 e 8 0 ]
-"30
+"28
 [v _Tecla Tecla `uc  1 e 1 0 ]
+"30
+[v _ing ing `[4]uc  1 e 4 0 ]
 "32
-[v _ing ing `uc  1 e 1 0 ]
-"56
+[v _a a `ui  1 e 2 0 ]
+"33
+[v _teclaIf teclaIf `ui  1 e 2 0 ]
+"34
+[v _teclaRecibidaIf teclaRecibidaIf `ui  1 e 2 0 ]
+"59
 [v _main main `(v  1 e 1 0 ]
 {
-"134
+"138
+[v main@i i `i  1 a 2 30 ]
+"175
 } 0
-"136
+"189
 [v _Velocidad Velocidad `(v  1 e 1 0 ]
 {
 [v Velocidad@val val `ui  1 p 2 7 ]
-"154
+"215
 } 0
-"259
+"343
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
 {
-"260
+"344
 [v TransmitirDatos@TempC TempC `ui  1 a 2 26 ]
-"261
+"345
 [v TransmitirDatos@Simb Simb `ui  1 a 2 24 ]
-"260
+"344
 [v TransmitirDatos@n n `ui  1 a 2 22 ]
-"259
+"343
 [v TransmitirDatos@Ent1 Ent1 `ui  1 p 2 16 ]
 [v TransmitirDatos@Ent2 Ent2 `ui  1 p 2 18 ]
-"321
+"405
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -290,82 +320,87 @@
 [v ___awdiv@divisor divisor `i  1 p 2 9 ]
 "41
 } 0
-"249 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"326 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _Transmitir Transmitir `(v  1 e 1 0 ]
 {
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
 [v Transmitir@BufferT BufferT `uc  1 a 1 7 ]
-"252
+"329
 } 0
-"247 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+"248 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
 {
-"251
+"252
 [v MensajeLCD_Word@i i `i  1 a 2 14 ]
-"247
+"248
 [v MensajeLCD_Word@a a `*.31uc  1 p 1 12 ]
-"257
+"258
 } 0
-"259
-[v _DireccionaLCD DireccionaLCD `(v  1 e 1 0 ]
+"217 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+[v _Password Password `(i  1 e 2 0 ]
 {
-[v DireccionaLCD@a a `uc  1 a 1 wreg ]
-[v DireccionaLCD@a a `uc  1 a 1 wreg ]
-"262
-[v DireccionaLCD@a a `uc  1 a 1 11 ]
-"266
+"221
+[v Password@i i `i  1 a 2 22 ]
+"218
+[v Password@secret secret `[4]uc  1 a 4 16 ]
+"219
+[v Password@access access `ui  1 a 2 20 ]
+"217
+[v Password@pass pass `*.30uc  1 p 1 12 ]
+[v Password@F3204 F3204 `[4]uc  1 s 4 F3204 ]
+"230
 } 0
-"140
+"141 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _NuevoCaracter NuevoCaracter `(v  1 e 1 0 ]
 {
 [v NuevoCaracter@addr addr `uc  1 a 1 wreg ]
-"141
+"142
 [v NuevoCaracter@i i `i  1 a 2 14 ]
-"140
+"141
 [v NuevoCaracter@addr addr `uc  1 a 1 wreg ]
 [v NuevoCaracter@c c `*.30uc  1 p 1 12 ]
-"142
+"143
 [v NuevoCaracter@addr addr `uc  1 a 1 13 ]
-"146
+"147
 } 0
-"148
+"149
 [v _EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
 {
 [v EscribeLCD_c@a a `uc  1 a 1 wreg ]
 [v EscribeLCD_c@a a `uc  1 a 1 wreg ]
-"152
+"153
 [v EscribeLCD_c@a a `uc  1 a 1 11 ]
-"156
+"157
 } 0
-"129
+"130
 [v _ComandoLCD ComandoLCD `(v  1 e 1 0 ]
 {
 [v ComandoLCD@data data `uc  1 a 1 wreg ]
 [v ComandoLCD@data data `uc  1 a 1 wreg ]
-"131
+"132
 [v ComandoLCD@data data `uc  1 a 1 8 ]
-"138
+"139
 } 0
-"157 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"233 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _LeerHT11 LeerHT11 `(v  1 e 1 0 ]
 {
-"172
+"248
 } 0
-"174
+"250
 [v _LeerByte LeerByte `(uc  1 e 1 0 ]
 {
-"175
+"251
 [v LeerByte@i i `uc  1 a 1 10 ]
 [v LeerByte@res res `uc  1 a 1 9 ]
-"180
+"256
 } 0
-"182
+"258
 [v _LeerBit LeerBit `(uc  1 e 1 0 ]
 {
-"183
+"259
 [v LeerBit@res res `uc  1 a 1 7 ]
-"193
+"269
 } 0
 "74 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _InicializaLCD InicializaLCD `(v  1 e 1 0 ]
@@ -375,7 +410,16 @@
 "115
 [v _BorraLCD BorraLCD `(v  1 e 1 0 ]
 {
-"121
+"122
+} 0
+"260
+[v _DireccionaLCD DireccionaLCD `(v  1 e 1 0 ]
+{
+[v DireccionaLCD@a a `uc  1 a 1 wreg ]
+[v DireccionaLCD@a a `uc  1 a 1 wreg ]
+"263
+[v DireccionaLCD@a a `uc  1 a 1 11 ]
+"267
 } 0
 "62
 [v _EnviaDato EnviaDato `(v  1 e 1 0 ]
@@ -385,32 +429,32 @@
 [v EnviaDato@a a `uc  1 a 1 10 ]
 "73
 } 0
-"295
+"296
 [v _RetardoLCD RetardoLCD `(v  1 e 1 0 ]
 {
 [v RetardoLCD@a a `uc  1 a 1 wreg ]
 [v RetardoLCD@a a `uc  1 a 1 wreg ]
 [v RetardoLCD@a a `uc  1 a 1 8 ]
-"313
+"314
 } 0
 "108
 [v _HabilitaLCD HabilitaLCD `(v  1 e 1 0 ]
 {
 "114
 } 0
-"323 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"407 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"377
+"464
 } 0
-"148 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+"149 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v i2_EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
 {
 [v i2EscribeLCD_c@a a `uc  1 a 1 wreg ]
 [v i2EscribeLCD_c@a a `uc  1 a 1 wreg ]
-"152
+"153
 [v i2EscribeLCD_c@a a `uc  1 a 1 4 ]
-"156
+"157
 } 0
 "62
 [v i2_EnviaDato EnviaDato `(v  1 e 1 0 ]
@@ -420,21 +464,21 @@
 [v i2EnviaDato@a a `uc  1 a 1 3 ]
 "73
 } 0
-"295
+"296
 [v i2_RetardoLCD RetardoLCD `(v  1 e 1 0 ]
 {
 [v i2RetardoLCD@a a `uc  1 a 1 wreg ]
 [v i2RetardoLCD@a a `uc  1 a 1 wreg ]
 [v i2RetardoLCD@a a `uc  1 a 1 1 ]
-"313
+"314
 } 0
 "108
 [v i2_HabilitaLCD HabilitaLCD `(v  1 e 1 0 ]
 {
 "114
 } 0
-"195 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
+"271 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _LeerTeclado LeerTeclado `(uc  1 e 1 0 ]
 {
-"246
+"323
 } 0

@@ -118,6 +118,7 @@ void BorraLCD(void){
 	EnviaDato(0x01);
 	HabilitaLCD();
 	RetardoLCD(2);
+    DireccionaLCD(0x80);
 }
 /*
 void CursorAInicio(){
