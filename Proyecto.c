@@ -14,6 +14,8 @@
 */
 
 //Variables
+int contador = 0;
+int duty = 0;
 unsigned char Temp, Humedad;
 unsigned char cara[]={
     0b00000000,
@@ -28,8 +30,7 @@ unsigned char cara[]={
 unsigned char Tecla;
 unsigned char Cont = 6;
 unsigned char ing = 0;
-int c = 0;
-unsigned int a = 125;
+int c = 1000000;
 
 //Configuraciones
 #pragma config FOSC=INTOSC_EC
@@ -51,8 +52,6 @@ unsigned char Recibir(void);
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2);
 void LeerHT11(void);
 void Velocidad(unsigned int val);
-void Movimiento(void);
-unsigned int ConvertirUnidades(unsigned char canal);
 
 void main(void){
     //Configuracion de pines
@@ -67,8 +66,7 @@ void main(void){
     BorraLCD();
     //Fin de configuracion del LCD
     //Configuracion del ADC
-    TRISA = 0b00000010;
-    ADCON0 = 0b00000101;
+    ADCON0 = 0b00000001;
     ADCON1 = 0b00001100;
     ADCON2 = 0b10001000;
     //Fin de configuracion del ADC
@@ -81,8 +79,9 @@ void main(void){
     //Configuracion del Timer 0
     T0CON=0b00000011;//No habilita timer0, 16 bits de resolucion, reloj interno
     TMR0IF=0;// apaga bandera
-    TMR0=64286; // valor pre carga
+    TMR0=64911; // valor pre carga
     TMR0IE=1; //Habilita la interrupcion 
+    GIE=1; //habilita interrupciones globales
     TMR0ON=1;
     //Fin de configuracion del Timer 0
     //Configuracion para PWM
@@ -105,17 +104,6 @@ void main(void){
     TRISC0= 1;
     UTRDIS = 1;
     USBEN = 0;
-    //Servomotor
-    TRISC1=0;      
-    TMR1=60536;        //Precarga del Timer1 que asegura los 20 ms mas el tiempo del pulso
-    T1CON=0b10110000;  //PS de 8
-    CCPR2=60536+125;    //Servomotor a 0°
-    CCP2CON=0b00001001; //Establece modo de comparación para generación de pulso
-    TMR1IF=0;
-    TMR1IE=1;
-    PEIE=1;
-    TMR1ON=1;    
-    GIE=1; //habilita interrupciones globales
     //Protocolo de inicio
     __delay_ms(1000); //Retraso para evitar errores
     BorraLCD(); 
@@ -144,20 +132,6 @@ void main(void){
         LeerHT11();        
         TransmitirDatos(0, 0);
         Velocidad(Temp);
-        ConvertirUnidades(0);
-        Movimiento();
-    }
-}
-
-void Movimiento(void){
-    if(ADRES>0 & ADRES<=255){
-        a = 125;
-    }else if(ADRES>255 & ADRES<=511){
-        a = 292;
-    }else if(ADRES>511 & ADRES<=1918){
-        a = 458;
-    }else if(ADRES>1918 & ADRES<=5115){
-        a = 625;
     }
 }
 
@@ -279,13 +253,6 @@ void Transmitir(unsigned char BufferT) {
     TXREG = BufferT;
 }
 
-unsigned int ConvertirUnidades(unsigned char canal) {
-    ADCON0 = 0b00000101  | (canal << 2);
-    GO = 1; //bsf ADCON0,1
-    while (GO == 1);
-    return ADRES;
-}
-
 unsigned char Recibir(void){
     while(RCIF==0);
     return RCREG;
@@ -358,7 +325,8 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
 void __interrupt() ISR(void){
     if(TMR0IF == 1){
         TMR0IF = 0;
-        TMR0 = 64286;
+        TMR0 = 64911;
+        contador += 1;
         if(RE0 == 1){
             CCP1CON = 0 ;
             __delay_ms(100);
@@ -403,11 +371,5 @@ void __interrupt() ISR(void){
         RBIF=0;        
         __delay_ms(300);
          
-    }
-    if(TMR1IF==1){
-        TMR1IF=0;
-        TMR1=60536;        //Precarga del Timer1 que asegura los 20 ms mas el tiempo del pulso
-        CCPR2=60536+a;    //Varia la duración del púlso y a su vez del angulo del servo
-        CCP2CON=0b00001001;
     }
 }
