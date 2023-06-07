@@ -14,9 +14,7 @@
 */
 
 //Variables
-int contador = 0;
-int duty = 0;
-unsigned char Temp, Humedad;
+unsigned char Temp;
 unsigned char cara[]={
     0b00000000,
     0b00001010,
@@ -28,10 +26,12 @@ unsigned char cara[]={
     0b00000000
     };
 unsigned char Tecla;
-unsigned char Cont = 6;
-unsigned char ing = 0;
-int c = 1000000;
-
+unsigned char Cont = 6; //Numero de posicion
+unsigned char ing[4];
+int c = 0;
+unsigned int a = 125;
+unsigned int teclaIf = 0;//bandera para deshabilitar el teclado 
+unsigned int teclaRecibidaIf = 0;//bandera para deshabilitar el teclado 
 //Configuraciones
 #pragma config FOSC=INTOSC_EC
 #pragma config PBADEN = OFF
@@ -39,9 +39,9 @@ int c = 1000000;
 #pragma config LVP=OFF
 
 #define _XTAL_FREQ 8000000 //Frecuencia de reloj
-#define DATA_DIR TRISC0
-#define DATA_IN RC0
-#define DATA_OUT LATC0
+#define DATA_DIR TRISA5
+#define DATA_IN RA5
+#define DATA_OUT LATA5
 
 //Prototipos
 unsigned char LeerTeclado(void);
@@ -52,6 +52,9 @@ unsigned char Recibir(void);
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2);
 void LeerHT11(void);
 void Velocidad(unsigned int val);
+void Movimiento(void);
+unsigned int ConvertirUnidades(unsigned char canal);
+int Password(char* pass);
 
 void main(void){
     //Configuracion de pines
@@ -66,6 +69,7 @@ void main(void){
     BorraLCD();
     //Fin de configuracion del LCD
     //Configuracion del ADC
+    TRISA = 0b00100010;
     ADCON0 = 0b00000001;
     ADCON1 = 0b00001100;
     ADCON2 = 0b10001000;
@@ -79,9 +83,8 @@ void main(void){
     //Configuracion del Timer 0
     T0CON=0b00000011;//No habilita timer0, 16 bits de resolucion, reloj interno
     TMR0IF=0;// apaga bandera
-    TMR0=64911; // valor pre carga
+    TMR0=64286; // valor pre carga
     TMR0IE=1; //Habilita la interrupcion 
-    GIE=1; //habilita interrupciones globales
     TMR0ON=1;
     //Fin de configuracion del Timer 0
     //Configuracion para PWM
@@ -101,9 +104,20 @@ void main(void){
     SPBRG = 12; 
     //Fin de configuracion de comunicacion  
     //Sensor
-    TRISC0= 1;
+    TRISA5= 1;
     UTRDIS = 1;
     USBEN = 0;
+    //Servomotor
+    TRISC1=0;      
+    TMR1=60536;        //Precarga del Timer1 que asegura los 20 ms mas el tiempo del pulso
+    T1CON=0b10110000;  //PS de 8
+    CCPR2=60536+125;    //Servomotor a 0°
+    CCP2CON=0b00001001; //Establece modo de comparación para generación de pulso
+    TMR1IF=0;
+    TMR1IE=1;
+    PEIE=1;
+    TMR1ON=1;    
+    GIE=1; //habilita interrupciones globales
     //Protocolo de inicio
     __delay_ms(1000); //Retraso para evitar errores
     BorraLCD(); 
@@ -118,41 +132,101 @@ void main(void){
     MensajeLCD_Word("                "); //Mandar mensaje vacio para limpiar
     DireccionaLCD(0x80);
     MensajeLCD_Word("Password:");
-    while(ing!=Cont){
-        DireccionaLCD(0xC1);
-        MensajeLCD_Word("                ");
+    
+    while (!Password(ing)) {
+        teclaIf = 1;
+        for (int i = 0; i <4; i++) {
+            while(teclaRecibidaIf==0);
+            teclaRecibidaIf=0;
+            ing[i] = Tecla;
+            
+        }
+        teclaIf = 0;
+        if (Password(ing)) {
+            MensajeLCD_Word("                      ");
+            DireccionaLCD(0xC1);
+            EscribeLCD_c(0);
+            __delay_ms(1000);
+        } else {
+            
+            DireccionaLCD(0xC1);
+            MensajeLCD_Word("Incorrecto");
+            __delay_ms(1000);
+            DireccionaLCD(0xC1);
+            MensajeLCD_Word("                      ");
+        }
     }
-    DireccionaLCD(0x80);
+    BorraLCD();
+    /*DireccionaLCD(0x80);
     MensajeLCD_Word("                ");
     DireccionaLCD(0xC1);
-    MensajeLCD_Word("                ");
+    MensajeLCD_Word("                ");*/
     __delay_ms(500);
+    
+    
     while(1){   
         __delay_ms(500);
         LeerHT11();        
         TransmitirDatos(0, 0);
         Velocidad(Temp);
+        ConvertirUnidades(0);
+        Movimiento();
+    }
+}
+
+void Movimiento(void){
+    if(ADRES>0 & ADRES<=255){
+        a = 125;
+    }else if(ADRES>255 & ADRES<=511){
+        a = 292;
+    }else if(ADRES>511 & ADRES<=1918){
+        a = 458;
+    }else if(ADRES>1918 & ADRES<=5115){
+        a = 625;
     }
 }
 
 void Velocidad(unsigned int val){
-    if (val < 22) {
-        CCPR1L = 0;
-    } else if (val >= 22 && val < 25) {
+    if (val <= 22) {
+        CCP1CON = 0;
+        RC2 = 0;
+    } else if (val > 22 && val < 25) {
+        CCP1CON = 0b00001100;
         CCPR1L = 19;
     } else if (val >= 25 && val < 28) {
+        CCP1CON = 0b00001100;
         CCPR1L = 38;
     } else if (val >= 28 && val < 31) {
+        CCP1CON = 0b00001100;
         CCPR1L = 57;
     } else if (val >= 31 && val < 34) {
+        CCP1CON = 0b00001100;
         CCPR1L = 76;
     } else if (val >= 34 && val < 37) {
+        CCP1CON = 0b00001100;
         CCPR1L = 95;
     } else if (val >= 37 && val < 40) {
+        CCP1CON = 0b00001100;
         CCPR1L = 113;
     } else if (val >= 40) {
-        CCPR1L = 126;
+        CCP1CON = 0;
+        RC2 = 1;
     }
+}
+
+int Password(char* pass){
+    unsigned char secret[] = {'0','1','2','3'};
+    unsigned int access = 0; 
+    DireccionaLCD(0xC1);
+    for(int i=0; i<4; i++){
+        
+        EscribeLCD_c('*');
+        if(pass[i] == secret[i]){
+            access++;
+        }
+    }
+    DireccionaLCD(0xC1);
+    return (access==4)? 1:0; 
 }
 
 
@@ -166,7 +240,7 @@ void LeerHT11(void) {
     __delay_us(120); //Pulso bajo, respuesta del sensor 80us, posteriormente pulso en alto de una duraci?n similar.
     while (DATA_IN == 1); //Tiempo en alto que dura hasta que el sensor toma control del canal de comunicaci?n
     //Recepci?n de datos
-    Humedad = LeerByte();
+    LeerByte();
     LeerByte();
     Temp = LeerByte();
     LeerByte();
@@ -195,6 +269,7 @@ unsigned char LeerBit(void) {
 }
 
 unsigned char LeerTeclado(void){
+    teclaRecibidaIf=1;
     switch (Tecla){
         case 1:
             Tecla='1';
@@ -253,13 +328,20 @@ void Transmitir(unsigned char BufferT) {
     TXREG = BufferT;
 }
 
+unsigned int ConvertirUnidades(unsigned char canal) {
+    ADCON0 = 0b00000001  | (canal << 2);
+    GO = 1; //bsf ADCON0,1
+    while (GO == 1);
+    return ADRES;
+}
+
 unsigned char Recibir(void){
     while(RCIF==0);
     return RCREG;
 }
 
 void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
-    unsigned int n = Ent1 * 10 + Ent2, TempC = Temp, HumedadC = Humedad;
+    unsigned int n = Ent1 * 10 + Ent2, TempC = Temp;
     unsigned int Simb = 67;
     BorraLCD();
     switch (n) {
@@ -299,13 +381,15 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
     Transmitir(Simb);
     Transmitir(' ');
     Transmitir('\n');
-    Transmitir('H');
+    Transmitir('D');
     Transmitir('u');
-    Transmitir('m');
+    Transmitir('t');
+    Transmitir('y');
     Transmitir(':');
     Transmitir(' ');
-    Transmitir(Humedad / 10 + 48);
-    Transmitir(Humedad % 10 + 48);
+    if(CCP1CON==0&& RC2==1) Transmitir(1 + 48);
+    Transmitir((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
+    Transmitir((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
     Transmitir(' ');
     Transmitir('%');
     Transmitir('\n');
@@ -315,9 +399,10 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
     EscribeLCD_c(TempC % 10 + 48);
     EscribeLCD_c(Simb);
     DireccionaLCD(192);
-    MensajeLCD_Word("Hum:");
-    EscribeLCD_c(Humedad / 10 + 48);
-    EscribeLCD_c(Humedad % 10 + 48);
+    MensajeLCD_Word("Duty:");
+    if(CCP1CON==0 && RC2==1) EscribeLCD_c(1 + 48);
+    EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
+    EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
     EscribeLCD_c('%');
 
 }
@@ -325,17 +410,18 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
 void __interrupt() ISR(void){
     if(TMR0IF == 1){
         TMR0IF = 0;
-        TMR0 = 64911;
-        contador += 1;
+        TMR0 = 64286;
         if(RE0 == 1){
-            CCP1CON = 0 ;
-            __delay_ms(100);
+            CCP1CON = 0;
+            RC2 = 0;
+            __delay_ms(200);
             SLEEP();
             while(1);
         }
     }
     if(RBIF==1){
-        if(PORTB!=0b11110000){
+        
+        if(PORTB!=0b11110000 && teclaIf == 1){
             Tecla=0;
             LATB=0b11111110;
             if(RB4==0) Tecla=16;
@@ -364,12 +450,18 @@ void __interrupt() ISR(void){
                 }
             }
             LATB=0b11110000;              
-            ing = Tecla;
+            
             LeerTeclado();
             EscribeLCD_c(Tecla);
         }
         RBIF=0;        
-        __delay_ms(300);
+        __delay_ms(50); //
          
+    }
+    if(TMR1IF==1){
+        TMR1IF=0;
+        TMR1=60536;        //Precarga del Timer1 que asegura los 20 ms mas el tiempo del pulso
+        CCPR2=60536+a;    //Varia la duración del púlso y a su vez del angulo del servo
+        CCP2CON=0b00001001;
     }
 }
