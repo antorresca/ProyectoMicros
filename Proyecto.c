@@ -69,11 +69,11 @@ void main(void){
     BorraLCD();
     //Fin de configuracion del LCD
     //Configuracion del ADC
-    TRISA = 0b00100010;
+    TRISA = 0b00100001;
     ADCON0 = 0b00000001;
     ADCON1 = 0b00001100;
     ADCON2 = 0b00001000;
-    //Fin de configuracion del ADC
+    //Fin de configuracion del ADC q    
     //Configuración matricial
     TRISB=0b11110000;
     RBPU=0;
