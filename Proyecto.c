@@ -72,7 +72,7 @@ void main(void){
     TRISA = 0b00100010;
     ADCON0 = 0b00000001;
     ADCON1 = 0b00001100;
-    ADCON2 = 0b10001000;
+    ADCON2 = 0b00001000;
     //Fin de configuracion del ADC
     //Configuración matricial
     TRISB=0b11110000;
@@ -175,13 +175,13 @@ void main(void){
 }
 
 void Movimiento(void){
-    if(ADRES>0 & ADRES<=255){
+    if(ADRES>0 & ADRES<=255){//0%- 25%
         a = 125;
-    }else if(ADRES>255 & ADRES<=511){
+    }else if(ADRES>255 & ADRES<=511){//25%-50%
         a = 292;
-    }else if(ADRES>511 & ADRES<=1918){
+    }else if(ADRES>511 & ADRES<=767){ //50%-75%
         a = 458;
-    }else if(ADRES>1918 & ADRES<=5115){
+    }else if(ADRES>767 & ADRES<=1024){//75%-100%
         a = 625;
     }
 }
@@ -344,24 +344,8 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
     unsigned int n = Ent1 * 10 + Ent2, TempC = Temp;
     unsigned int Simb = 67;
     BorraLCD();
-    switch (n) {
-        case 00://Celsius
-            TempC = Temp;
-            Simb = 67; //C
-            break;
-        case 01://Kelvin
-            TempC = Temp + 273;
-            Simb = 75; //K
-            break;
-        case 10://Rankine
-            TempC = Temp * 9 / 5 + 492;
-            Simb = 82; //R
-            break;
-        case 11://Fahrenheit
-            TempC = Temp * 9 / 5 + 32;
-            Simb = 70; //F
-            break;
-    }
+    TempC = Temp;
+    Simb = 67;
     Transmitir('T');
     Transmitir('e');
     Transmitir('m');
@@ -404,7 +388,6 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
     EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
     EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
     EscribeLCD_c('%');
-
 }
 
 void __interrupt() ISR(void){
@@ -415,6 +398,8 @@ void __interrupt() ISR(void){
             CCP1CON = 0;
             RC2 = 0;
             __delay_ms(200);
+            BorraLCD(); 
+            MensajeLCD_Word("STOPED");
             SLEEP();
             while(1);
         }

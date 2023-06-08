@@ -5936,7 +5936,7 @@ BorraLCD();
 TRISA = 0b00100010;
 ADCON0 = 0b00000001;
 ADCON1 = 0b00001100;
-ADCON2 = 0b10001000;
+ADCON2 = 0b00001000;
 
 
 TRISB=0b11110000;
@@ -6041,9 +6041,9 @@ if(ADRES>0 & ADRES<=255){
 a = 125;
 }else if(ADRES>255 & ADRES<=511){
 a = 292;
-}else if(ADRES>511 & ADRES<=1918){
+}else if(ADRES>511 & ADRES<=767){
 a = 458;
-}else if(ADRES>1918 & ADRES<=5115){
+}else if(ADRES>767 & ADRES<=1024){
 a = 625;
 }
 }
@@ -6206,24 +6206,8 @@ void TransmitirDatos(unsigned int Ent1, unsigned int Ent2) {
 unsigned int n = Ent1 * 10 + Ent2, TempC = Temp;
 unsigned int Simb = 67;
 BorraLCD();
-switch (n) {
-case 00:
 TempC = Temp;
 Simb = 67;
-break;
-case 01:
-TempC = Temp + 273;
-Simb = 75;
-break;
-case 10:
-TempC = Temp * 9 / 5 + 492;
-Simb = 82;
-break;
-case 11:
-TempC = Temp * 9 / 5 + 32;
-Simb = 70;
-break;
-}
 Transmitir('T');
 Transmitir('e');
 Transmitir('m');
@@ -6266,7 +6250,6 @@ if(CCP1CON==0 && RC2==1) EscribeLCD_c(1 + 48);
 EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) / 10 + 48):0+48);
 EscribeLCD_c((CCP1CON!=0)? ((CCPR1L*100/126) % 10 + 48):0+48);
 EscribeLCD_c('%');
-
 }
 
 void __interrupt() ISR(void){
@@ -6277,6 +6260,8 @@ if(RE0 == 1){
 CCP1CON = 0;
 RC2 = 0;
 _delay((unsigned long)((200)*(8000000/4000.0)));
+BorraLCD();
+MensajeLCD_Word("STOPED");
 asm(" sleep");
 while(1);
 }

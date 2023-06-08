@@ -45,6 +45,7 @@
 [v i2_HabilitaLCD HabilitaLCD `(v  1 e 1 0 ]
 "115
 [v _BorraLCD BorraLCD `(v  1 e 1 0 ]
+[v i2_BorraLCD BorraLCD `(v  1 e 1 0 ]
 "129
 [v _ComandoLCD ComandoLCD `(v  1 e 1 0 ]
 "140
@@ -54,6 +55,7 @@
 [v i2_EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
 "247
 [v _MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
+[v i2_MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
 "259
 [v _DireccionaLCD DireccionaLCD `(v  1 e 1 0 ]
 "295
@@ -81,7 +83,7 @@
 [v _ConvertirUnidades ConvertirUnidades `(ui  1 e 2 0 ]
 "343
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
-"410
+"393
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 "2454 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
@@ -225,83 +227,79 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "138
-[v main@i i `i  1 a 2 45 ]
+[v main@i i `i  1 a 2 47 ]
 "175
 } 0
 "189
 [v _Velocidad Velocidad `(v  1 e 1 0 ]
 {
-[v Velocidad@val val `ui  1 p 2 7 ]
+[v Velocidad@val val `ui  1 p 2 15 ]
 "215
 } 0
 "343
 [v _TransmitirDatos TransmitirDatos `(v  1 e 1 0 ]
 {
 "344
-[v TransmitirDatos@TempC TempC `ui  1 a 2 41 ]
-"345
-[v TransmitirDatos@Simb Simb `ui  1 a 2 39 ]
-"344
-[v TransmitirDatos@n n `ui  1 a 2 27 ]
+[v TransmitirDatos@TempC TempC `ui  1 a 2 43 ]
 "343
-[v TransmitirDatos@Ent1 Ent1 `ui  1 p 2 21 ]
-[v TransmitirDatos@Ent2 Ent2 `ui  1 p 2 23 ]
-"408
+[v TransmitirDatos@Ent1 Ent1 `ui  1 p 2 29 ]
+[v TransmitirDatos@Ent2 Ent2 `ui  1 p 2 31 ]
+"391
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 11 ]
+[v ___wmul@product product `ui  1 a 2 19 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 7 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 9 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 15 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 17 ]
 "53
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwmod@counter counter `uc  1 a 1 11 ]
+[v ___lwmod@counter counter `uc  1 a 1 19 ]
 "7
-[v ___lwmod@dividend dividend `ui  1 p 2 7 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 9 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 15 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 17 ]
 "25
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 11 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 19 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 13 ]
+[v ___lwdiv@counter counter `uc  1 a 1 21 ]
 "7
-[v ___lwdiv@dividend dividend `ui  1 p 2 7 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 9 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 15 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 17 ]
 "30
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "10
-[v ___awmod@sign sign `uc  1 a 1 20 ]
-[v ___awmod@counter counter `uc  1 a 1 19 ]
+[v ___awmod@sign sign `uc  1 a 1 28 ]
+[v ___awmod@counter counter `uc  1 a 1 27 ]
 "7
-[v ___awmod@dividend dividend `i  1 p 2 15 ]
-[v ___awmod@divisor divisor `i  1 p 2 17 ]
+[v ___awmod@dividend dividend `i  1 p 2 23 ]
+[v ___awmod@divisor divisor `i  1 p 2 25 ]
 "34
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 13 ]
+[v ___awdiv@quotient quotient `i  1 a 2 21 ]
 "11
-[v ___awdiv@sign sign `uc  1 a 1 12 ]
-[v ___awdiv@counter counter `uc  1 a 1 11 ]
+[v ___awdiv@sign sign `uc  1 a 1 20 ]
+[v ___awdiv@counter counter `uc  1 a 1 19 ]
 "7
-[v ___awdiv@dividend dividend `i  1 p 2 7 ]
-[v ___awdiv@divisor divisor `i  1 p 2 9 ]
+[v ___awdiv@dividend dividend `i  1 p 2 15 ]
+[v ___awdiv@divisor divisor `i  1 p 2 17 ]
 "41
 } 0
 "326 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
@@ -309,29 +307,29 @@
 {
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
 [v Transmitir@BufferT BufferT `uc  1 a 1 wreg ]
-[v Transmitir@BufferT BufferT `uc  1 a 1 7 ]
+[v Transmitir@BufferT BufferT `uc  1 a 1 15 ]
 "329
 } 0
 "247 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
 [v _MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
 {
 "251
-[v MensajeLCD_Word@i i `i  1 a 2 14 ]
+[v MensajeLCD_Word@i i `i  1 a 2 22 ]
 "247
-[v MensajeLCD_Word@a a `*.31uc  1 p 1 12 ]
+[v MensajeLCD_Word@a a `*.31uc  1 p 1 20 ]
 "257
 } 0
 "217 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
 [v _Password Password `(i  1 e 2 0 ]
 {
 "221
-[v Password@i i `i  1 a 2 22 ]
+[v Password@i i `i  1 a 2 30 ]
 "218
-[v Password@secret secret `[4]uc  1 a 4 16 ]
+[v Password@secret secret `[4]uc  1 a 4 24 ]
 "219
-[v Password@access access `ui  1 a 2 20 ]
+[v Password@access access `ui  1 a 2 28 ]
 "217
-[v Password@pass pass `*.30uc  1 p 1 12 ]
+[v Password@pass pass `*.30uc  1 p 1 20 ]
 [v Password@F3203 F3203 `[4]uc  1 s 4 F3203 ]
 "230
 } 0
@@ -341,7 +339,7 @@
 [v DireccionaLCD@a a `uc  1 a 1 wreg ]
 [v DireccionaLCD@a a `uc  1 a 1 wreg ]
 "262
-[v DireccionaLCD@a a `uc  1 a 1 11 ]
+[v DireccionaLCD@a a `uc  1 a 1 19 ]
 "266
 } 0
 "140
@@ -349,12 +347,12 @@
 {
 [v NuevoCaracter@addr addr `uc  1 a 1 wreg ]
 "141
-[v NuevoCaracter@i i `i  1 a 2 14 ]
+[v NuevoCaracter@i i `i  1 a 2 22 ]
 "140
 [v NuevoCaracter@addr addr `uc  1 a 1 wreg ]
-[v NuevoCaracter@c c `*.30uc  1 p 1 12 ]
+[v NuevoCaracter@c c `*.30uc  1 p 1 20 ]
 "142
-[v NuevoCaracter@addr addr `uc  1 a 1 13 ]
+[v NuevoCaracter@addr addr `uc  1 a 1 21 ]
 "146
 } 0
 "148
@@ -363,7 +361,7 @@
 [v EscribeLCD_c@a a `uc  1 a 1 wreg ]
 [v EscribeLCD_c@a a `uc  1 a 1 wreg ]
 "152
-[v EscribeLCD_c@a a `uc  1 a 1 11 ]
+[v EscribeLCD_c@a a `uc  1 a 1 19 ]
 "156
 } 0
 "129
@@ -372,7 +370,7 @@
 [v ComandoLCD@data data `uc  1 a 1 wreg ]
 [v ComandoLCD@data data `uc  1 a 1 wreg ]
 "131
-[v ComandoLCD@data data `uc  1 a 1 8 ]
+[v ComandoLCD@data data `uc  1 a 1 16 ]
 "138
 } 0
 "177 C:\Users\Andres\MPLABXProjects\Proyecto.X\Proyecto.c
@@ -389,15 +387,15 @@
 [v _LeerByte LeerByte `(uc  1 e 1 0 ]
 {
 "251
-[v LeerByte@i i `uc  1 a 1 10 ]
-[v LeerByte@res res `uc  1 a 1 9 ]
+[v LeerByte@i i `uc  1 a 1 18 ]
+[v LeerByte@res res `uc  1 a 1 17 ]
 "256
 } 0
 "258
 [v _LeerBit LeerBit `(uc  1 e 1 0 ]
 {
 "259
-[v LeerBit@res res `uc  1 a 1 7 ]
+[v LeerBit@res res `uc  1 a 1 15 ]
 "269
 } 0
 "74 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
@@ -415,7 +413,7 @@
 {
 [v EnviaDato@a a `uc  1 a 1 wreg ]
 [v EnviaDato@a a `uc  1 a 1 wreg ]
-[v EnviaDato@a a `uc  1 a 1 10 ]
+[v EnviaDato@a a `uc  1 a 1 18 ]
 "73
 } 0
 "295
@@ -423,7 +421,7 @@
 {
 [v RetardoLCD@a a `uc  1 a 1 wreg ]
 [v RetardoLCD@a a `uc  1 a 1 wreg ]
-[v RetardoLCD@a a `uc  1 a 1 8 ]
+[v RetardoLCD@a a `uc  1 a 1 16 ]
 "313
 } 0
 "108
@@ -436,15 +434,24 @@
 {
 [v ConvertirUnidades@canal canal `uc  1 a 1 wreg ]
 [v ConvertirUnidades@canal canal `uc  1 a 1 wreg ]
-[v ConvertirUnidades@canal canal `uc  1 a 1 7 ]
+[v ConvertirUnidades@canal canal `uc  1 a 1 15 ]
 "336
 } 0
-"410
+"393
 [v _ISR ISR `IIH(v  1 e 1 0 ]
 {
-"467
+"452
 } 0
-"148 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+"247 C:\Users\Andres\MPLABXProjects\Proyecto.X\LibLCDXC8.h
+[v i2_MensajeLCD_Word MensajeLCD_Word `(v  1 e 1 0 ]
+{
+"251
+[v i2MensajeLCD_Word@i i `i  1 a 2 7 ]
+"247
+[v i2MensajeLCD_Word@a a `*.31uc  1 p 1 5 ]
+"257
+} 0
+"148
 [v i2_EscribeLCD_c EscribeLCD_c `(v  1 e 1 0 ]
 {
 [v i2EscribeLCD_c@a a `uc  1 a 1 wreg ]
@@ -452,6 +459,11 @@
 "152
 [v i2EscribeLCD_c@a a `uc  1 a 1 4 ]
 "156
+} 0
+"115
+[v i2_BorraLCD BorraLCD `(v  1 e 1 0 ]
+{
+"121
 } 0
 "62
 [v i2_EnviaDato EnviaDato `(v  1 e 1 0 ]
